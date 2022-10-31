@@ -1,0 +1,269 @@
+.landing__top-section-wrap {
+  padding-bottom: 1rem;
+}
+
+.landing__top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5rem 5rem;
+}
+
+.enlighten-image-wrap {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.landing__top-section-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+}
+
+.landing__top-section-heading {
+  font-size: 35px;
+  font-weight: 900;
+}
+
+.landing__top-section-para {
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.landing-page__investment-flow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lading-page__investment-flow-heading {
+  font-size: 35px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.investment__flow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 1rem;
+}
+
+.investment__flow-card {
+  width: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 1rem;
+  margin-bottom: 4rem;
+}
+
+.ellipse-bg {
+  color: #fff;
+  font-size: 20px;
+  border-radius: 50%;
+  background-size: 100% 100%;
+  width: 125px;
+  height: 125px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.investment__flow-card:nth-child(even) {
+  transform: translateY(2.5rem);
+}
+
+.apply-to-invest__button {
+  color: #fff;
+  font-size: 28px;
+  background: #2a72de;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding: 0.5rem 7rem;
+  cursor: pointer;
+  margin-bottom: 4rem;
+}
+
+.apply-to-invest__button:hover {
+  opacity: 0.8;
+}
+
+.landing-page__investment-thesis {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lading-page__investement-thesis-heading {
+  font-size: 35px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.investment-thesis__paragraph {
+  text-align: center;
+  margin: 2rem 15rem;
+}
+
+.investment-thesis__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.investment-thesis__card {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 5rem;
+}
+
+.investment-thesis__card-heading {
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.lading-page__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
+
+.lading-page__main-heading {
+  font-size: 35px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.landing__investor-content-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 2rem;
+}
+
+.landing__investor-card-wrap {
+  width: 50%;
+  margin: 3rem;
+}
+
+.landing__investor-card {
+  width: max-content;
+  background: rgba(255, 255, 255, 0.6);
+  border: 12px solid #0077b7;
+  backdrop-filter: blur(50px);
+  border-radius: 27px;
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing__investor-card-content-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.landing-page__signup-button {
+  font-size: 22px;
+  font-weight: 600;
+  width: 250px;
+  height: 50px;
+  background: #0077b7;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.landing-page__signup-button:hover {
+  opacity: 0.8;
+}
+
+.landing__investor-options {
+  width: 50%;
+  margin: 3rem;
+}
+
+.landing__investor-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 600;
+  margin: 3rem 0;
+}
+
+@media screen and (width<1280px) {
+  .landing__achievements {
+    flex-direction: column;
+  }
+  .achievements-card {
+    margin: 2rem 0;
+  }
+  .landing__investor-content-wrap {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .landing__investor-card-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (width<1028px) {
+  .landing__top-section {
+    flex-direction: column;
+  }
+  .landing__top-section-content {
+    width: 100%;
+    margin-top: 4rem;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (width<1366px) {
+  .landing-page__partner-cards {
+    flex-direction: column;
+  }
+  .landing-page__partner-wrap {
+    margin: 5rem 0;
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (width<848px) {
+  .investment-thesis__paragraph {
+    text-align: center;
+    margin: 2rem 2rem;
+  }
+}
+
+@media screen and (width<660px) {
+  .investment-thesis__card {
+    width: 80%;
+  }
+}

@@ -1,0 +1,198 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
+
+.welcome-heading {
+  color: #0077b7;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.login-to-account {
+  color: #000;
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 0.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.login-card {
+  width: max-content;
+  height: max-content;
+
+  background: #2a72de;
+  backdrop-filter: blur(24px);
+  border-radius: 21px;
+}
+
+.label {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 2rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.email__input-box {
+  all: unset;
+  color: black;
+  width: 350px;
+  margin: 0 2rem;
+  margin-bottom: 0.5rem;
+  background: rgba(217, 217, 217, 0.6);
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+.password-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.password__input-box {
+  all: unset;
+  color: black;
+  width: 350px;
+  margin: 0 2rem;
+  margin-bottom: 0.5rem;
+  background: rgba(217, 217, 217, 0.6);
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+.show-password {
+  all: unset;
+  background: transparent;
+  padding: 0.5rem;
+  margin-left: -4.3rem;
+  color: black;
+  cursor: pointer;
+}
+
+.forgot-password {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.social-login-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 6rem;
+  margin-top: 1rem;
+}
+
+.social-login-icons__image:hover {
+  cursor: pointer;
+}
+
+.login-button {
+  width: 380px;
+  margin: 2rem;
+  font-size: 22px;
+  font-weight: 600;
+  background: #000000;
+  border-radius: 4px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 1rem 0;
+}
+
+.login-button:hover {
+  opacity: 0.8;
+}
+
+.login-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  margin-top: 3rem;
+}
+
+.ellipse3 {
+  transform: translateX(-10rem);
+}
+
+.ellipse5 {
+  transform: translate(-5.5rem, -8rem);
+}
+
+.ellipse6 {
+  transform: translate(8.5rem, -2.5rem);
+}
+
+.ellipse-login {
+  position: absolute;
+  width: 301px;
+  height: 271px;
+  left: 109px;
+  top: 206px;
+  background: linear-gradient(
+    236.51deg,
+    #012437 24.72%,
+    rgba(140, 150, 253, 0.42) 100%
+  );
+  opacity: 0.4;
+  filter: blur(40px);
+  z-index: -1;
+}
+
+@media screen and (max-width: 1028px) {
+  .main {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (width < 650px) {
+  .login-left {
+    width: 30%;
+  }
+  .welcome-heading {
+    font-size: 25px;
+  }
+  .login-to-account {
+    font-size: 15px;
+  }
+  .login-right {
+    margin-left: 5rem;
+  }
+}
+
+.loading-state {
+  animation: ArrowRepeat 1.5s linear infinite;
+}
+
+@keyframes ArrowRepeat {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

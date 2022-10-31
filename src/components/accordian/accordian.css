@@ -1,0 +1,13 @@
+.faqs-contentQ {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  line-height: 3rem;
+}
+.faqs-contentQ h2 {
+  margin: 0;
+}
+
+.faqs-contetnA {
+  margin: 1rem 0rem 1rem 0rem;
+}

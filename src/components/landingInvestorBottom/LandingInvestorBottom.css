@@ -1,0 +1,79 @@
+.landing-investor__bottom {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2rem 0;
+  background-color: #0a0e14;
+}
+
+.landing-investor__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  width: 33%;
+  color: white;
+  margin-top: 2.5rem;
+  margin-left: 5rem;
+}
+
+.landing-investor__left-heading {
+  font-size: 40px;
+  font-weight: 900;
+}
+
+.landing-investor__left-para {
+  font-size: 20px;
+}
+
+.landing-investor__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 55%;
+}
+
+.landing-investor__right-heading {
+  font-size: 40px;
+  font-weight: 900;
+  color: #0077b7;
+  text-align: center;
+}
+
+.landing-investor__right-img {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.investor__right-img {
+  width: 200px;
+  margin: 1rem;
+}
+
+@media screen and (width<1280px) {
+  .landing-investor__bottom {
+    flex-direction: column;
+  }
+
+  .landing-investor__left {
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
+  }
+
+  .landing-investor__right {
+    margin-top: 2rem;
+    width: 100%;
+  }
+
+  .landing-investor__left {
+    text-align: center;
+  }
+}

@@ -1,0 +1,199 @@
+.home__top-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5rem;
+}
+
+.group-image-wrap {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.home__top-section-content {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+}
+
+.home__top-section-heading {
+  font-size: 35px;
+  font-weight: 900;
+}
+
+.home__top-section-para {
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.home__achievements {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.home__achievement {
+  width: 250px;
+  margin: 3rem 1rem;
+  color: #fff;
+  font-size: 20px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    #2a72de;
+  backdrop-filter: blur(50px);
+  border-radius: 27px;
+}
+
+.home__invest-with-rvp {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.home__deal-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 1rem;
+  text-align: start;
+}
+
+.home__invest-now-button {
+  padding: 1rem 7rem;
+  color: #fff;
+  font-size: 20px;
+  background: #2a72de;
+  border-radius: 14px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.home__invest-now-button:hover {
+  opacity: 0.8;
+}
+
+.home__platform-features {
+  text-align: center;
+  margin: 3rem 1rem;
+}
+
+.home__how-we-work {
+  display: flex;
+  flex-direction: column;
+  flex-direction: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 2rem;
+}
+
+.home__investor-starup-switch-tab {
+  width: 300px;
+  padding: 0.5rem 0.5rem;
+  color: #0077b7;
+  font-size: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  background: #202020;
+  border-radius: 14px;
+}
+
+.home__investor-tab {
+  border-radius: 14px;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+}
+
+.home__startup-tab {
+  border-radius: 14px;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+}
+
+.home__investor-tab:hover {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 0.5rem 1.5rem;
+}
+
+.home__startup-tab:hover {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 0.5rem 1.5rem;
+}
+
+.home__reverr-blogs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 7rem;
+}
+
+.home__blogs-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../../assets/img/reverr-blog.png");
+  background-size: 100% 100%;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  height: 276px;
+}
+
+.home__blogs-search-input {
+  width: 320px;
+  background: #ffffff;
+  border-radius: 9px;
+  font-size: 15px;
+  padding: 0.8rem 0.8rem 0.8rem 0.8rem;
+  transform: translateY(-3.5rem);
+  outline: none;
+  border: none;
+  box-shadow: 0 0 3px #ccc;
+}
+
+.home__blogs-fetched {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.blog-card__link {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media screen and (width<1080px) {
+  .home__reverr-blogs {
+    margin: 2rem 3rem;
+  }
+}
+
+@media screen and (width<1028px) {
+  .home__top-section {
+    flex-direction: column;
+  }
+  .home__top-section-content {
+    width: 100%;
+    margin-top: 4rem;
+    justify-content: center;
+    align-items: center;
+  }
+}

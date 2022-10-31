@@ -1,0 +1,15 @@
+.not-found__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.not-found__404 {
+  font-size: 5rem;
+  color: #4f86ed;
+  font-weight: 900;
+}

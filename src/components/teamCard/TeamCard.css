@@ -1,0 +1,43 @@
+.team-card {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #2a72de 0%, #000000 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 35%;
+  margin: 2rem;
+}
+
+.team-card__profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.team-card__name {
+  font-size: 20px;
+  font-weight: 900;
+  margin-top: 0.5rem;
+}
+
+.team-card__title {
+  display: flex;
+  font-size: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-card__description {
+  color: #fff;
+  text-align: center;
+}
+
+.team-card__social-icon {
+  width: 25px;
+  cursor: pointer;
+  margin: 0 0.5rem;
+}

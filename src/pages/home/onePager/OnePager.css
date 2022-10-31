@@ -1,0 +1,142 @@
+.one-pager__main {
+  display: flex;
+}
+
+.one-pager__side-nav {
+  width: 12%;
+  margin: 1rem 5rem;
+}
+
+.one-pager__right {
+  width: 60%;
+  margin: 1rem 3rem;
+  margin-right: 10rem;
+}
+
+.one-pager__top-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.one-pager__deal-branding {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-20%);
+}
+
+.one-pager__problem-solution-wrap {
+  display: flex;
+}
+
+.one-pager__problem {
+  width: 50%;
+  margin: 0 1rem;
+}
+
+.one-pager__solution {
+  width: 50%;
+  margin: 0 1rem;
+}
+
+.one-pager__market-details {
+  width: 550px;
+  height: 500px;
+  background-image: url("../../../assets/img/market_bg.png");
+  background-size: 100% 100%;
+  margin: 5rem auto;
+}
+
+.one-pager__market-tam {
+  display: flex;
+  justify-content: space-between;
+  margin: 7rem 1rem 2rem 12rem;
+}
+
+.one-pager__market-sam {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 1rem 2rem 12rem;
+}
+
+.one-pager__market-som {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 1rem 2rem 12rem;
+}
+
+.one-pager__growth-traction-wrap {
+  display: flex;
+}
+
+.one-pager__growth-strategy {
+  width: 50%;
+  margin: 0 1rem;
+}
+
+.one-pager__market-traction {
+  width: 50%;
+  margin: 0 1rem;
+}
+
+.one-pager__projections {
+  margin: 5rem 1rem;
+}
+
+.one-pager__projections-table {
+  width: 80%;
+  background-color: #000;
+  border-radius: 12px;
+  color: #fff;
+  padding: 1.5rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border-right: 2px solid #0077b7;
+  border-bottom: 2px solid #0077b7;
+  text-align: center;
+  padding: 1rem 1.5rem;
+}
+
+.one-pager__fundings {
+  margin: 5rem 1rem;
+}
+
+.one-pager__funding {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.one-pager__team {
+  margin: 5rem 1rem;
+}
+
+.one-pager__team-card-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.one-pager__download-button {
+  width: 200px;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 900;
+  text-align: center;
+  padding: 1rem 5rem;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  background: #2a72de;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.one-pager__download-button:hover {
+  opacity: 0.8;
+}

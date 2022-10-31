@@ -1,0 +1,24 @@
+.people {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.people__side-nav {
+  width: 12%;
+  margin: 0 0rem 0 5rem;
+}
+
+.people__right-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: auto;
+  /* margin-right: 20px; */
+  margin-bottom: 2rem;
+  height: max-content;
+}
+
+.people_team-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}

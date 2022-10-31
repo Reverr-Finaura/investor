@@ -1,0 +1,87 @@
+.portfolio__main {
+  display: flex;
+}
+
+.portfolio__side-nav {
+  width: 12%;
+  margin: 1rem 5rem;
+}
+
+.portfolio__right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 7rem;
+}
+
+.portfolio__top-bar {
+  display: flex;
+  width: 80%;
+  color: #2a72de;
+  align-items: center;
+}
+
+.portfolio__investments {
+  margin: 2rem 0;
+}
+
+.portfolio__no-of-startup-invested-in {
+  margin: 1rem 0;
+}
+
+.portfolio__startups-invested-in {
+  margin: 2rem 0;
+}
+
+.portfolio_starup-invested-card {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.portfolio__current-portfolio-value {
+  margin: 2rem 0;
+}
+
+.portfolio__deals-of-startup-invested-in {
+  margin: 2rem 0;
+}
+
+.portfolio__deals-fetched-cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.portfolio__investment-by {
+  margin-bottom: 2rem;
+}
+
+/* Custom Dropdown*/
+
+select {
+  color: #555555;
+  width: 250px;
+  padding: 10px 35px 10px 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  height: 40px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("../../../assets/img/downArrow.png") 96% / 6% no-repeat #eee;
+  background-color: #d9d9d9;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+@media screen and (min-width: 0\0) {
+  select {
+    background: none\9;
+    padding: 5px\9;
+  }
+}

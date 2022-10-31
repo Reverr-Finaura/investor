@@ -1,0 +1,43 @@
+.faqs {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.faqs__side-nav {
+  width: 12%;
+  margin: 0 0rem 0 5rem;
+}
+
+.faqs__right-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: auto;
+  /* margin-right: 20px; */
+  margin-bottom: 2rem;
+  height: max-content;
+}
+.faqs__contact-wrap {
+  margin-top: 2rem;
+}
+
+.faqs__contact-input {
+  background: #d9d9d9;
+  padding: 18px;
+  width: 76%;
+  border-radius: 8px;
+  outline: none;
+  border: 2px solid white;
+  margin-left: -1px;
+}
+
+.faqs__contact-btn {
+  font-size: 20px;
+  padding: 14px 40px;
+  border-radius: 10px;
+  margin-left: 1rem;
+  border: none;
+  cursor: pointer;
+  background-color: #0077b7;
+  color: white;
+}

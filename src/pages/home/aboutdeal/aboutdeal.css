@@ -1,0 +1,141 @@
+.aboutdeal {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.abousDeal-side__nav {
+  width: 12%;
+  /* padding: 10px; */
+  margin: 0 0rem 0 5rem;
+}
+
+.aboutdeal__right-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: auto;
+  /* margin-right: 20px; */
+  margin-left: 6rem;
+  margin-bottom: 2rem;
+  height: max-content;
+}
+
+.aboutdeal__head-wrap {
+}
+
+.aboutdeal__head {
+  display: flex;
+  justify-content: space-between;
+  height: 300px;
+}
+
+.aboutdeal__head-content {
+  margin-top: 1rem;
+}
+
+.aboutdeal__logo {
+  text-align: center;
+  width: 10%;
+  align-self: flex-end;
+}
+
+.aboutdeal__logo > h1 {
+  margin: 0;
+  line-height: 35px;
+}
+
+.aboutdeal__video {
+  width: 85%;
+  border-radius: 20px;
+  box-shadow: 0 0 5px #535353;
+}
+
+.aboutdeal__progress {
+  width: 98%;
+  padding: 15px;
+  margin: 1rem 0rem 1rem 0rem;
+}
+
+.aboutdeal__stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin-left: 10rem;
+}
+.aboutdeal__stat {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.aboutdeal__overview {
+  margin-top: 3rem;
+}
+
+.aboutdeal__overview-content {
+  display: flex;
+}
+
+.aboutdeal__overview-left {
+  width: 35%;
+}
+
+.aboutdeal__overview-right h3 {
+  color: #a6a6a6;
+}
+.aboutdeal__overview-social-links {
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+}
+.aboutdeal__overview-social-tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.aboutdeal__overview-social-tag {
+  padding: 0.3rem 1rem;
+  background: rgba(0, 119, 183, 0.86);
+  border-radius: 8px;
+  color: #fff;
+  margin-right: 1rem;
+}
+
+.aboutdeal__overviewInterested-btn {
+  font-size: 20px;
+  font-weight: 600;
+  width: 50%;
+  height: 45px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  margin: 1rem 0rem 0rem 2rem;
+}
+
+.aboutdeal__overviewInterested-btn:hover {
+  opacity: 0.8;
+}
+
+.aboutdeal__highlights {
+  margin: 5rem 0rem 3rem 0rem;
+}
+
+.aboutdeal__highlight-heading {
+  color: #2a72de;
+  border-left: 10px solid #2a72de;
+  margin-bottom: 3rem;
+}
+
+.aboutdeal__highlight-heading > h1 {
+  margin-left: 1rem;
+}
+.aboutdeal__highlight-content {
+  background-color: #2a72de;
+  padding: 40px;
+  border-radius: 10px;
+  color: white;
+  line-height: 3rem;
+}

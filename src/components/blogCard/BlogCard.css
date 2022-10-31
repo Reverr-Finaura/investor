@@ -1,0 +1,32 @@
+.blog-card {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #ccc;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.blog-card:hover {
+  box-shadow: 0 0 5px #535353;
+}
+
+.blog-body {
+  text-align: center;
+}
+
+.blog-card__read-more {
+  font-size: 20px;
+  display: flex;
+  justify-content: right;
+  cursor: pointer;
+  color: #0077b7;
+}
+
+.blog-card__read-more:hover {
+  text-decoration: underline;
+}

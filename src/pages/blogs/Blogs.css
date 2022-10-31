@@ -1,0 +1,27 @@
+.blog-post {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 5rem;
+}
+
+.blog-post__header-info {
+  opacity: 0.6;
+  text-align: center;
+}
+
+.blog-post__img {
+  width: 50%;
+}
+
+.blog-post__content {
+  font-size: 18px;
+  text-align: justify;
+}
+
+@media screen and (width<720px) {
+  .blog-post {
+    margin: 3rem 2rem;
+  }
+}

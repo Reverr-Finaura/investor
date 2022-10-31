@@ -1,0 +1,50 @@
+.startup-image-wrap {
+  order: -1;
+}
+
+.startups-pentagon-image {
+  background: url("../../assets/img/pentagon.png");
+  background-size: 100% 100%;
+  width: 125px;
+  height: 125px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  width: 90%;
+  height: 150px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landiing__startups-lifecycle {
+  width: 80%;
+  text-align: left;
+  margin-top: 5rem;
+}
+
+.landiing__startups-lifecycle img {
+  width: 100%;
+}
+
+.landiing__startups-lifecycleBtn-wrap {
+  text-align: center;
+}
+
+.landiing__startups-lifecycle button {
+  all: unset;
+  text-align: center;
+  color: #fff;
+  background: #0077b7;
+  border-radius: 5px;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.landiing__startups-lifecycle button:hover {
+  opacity: 0.8;
+}

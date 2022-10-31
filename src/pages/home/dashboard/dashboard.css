@@ -1,0 +1,274 @@
+.dashboard {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.dashboard__side-nav {
+  width: 12%;
+  /* padding: 10px; */
+  margin: 0 0rem 0 5rem;
+}
+
+.dashboard__right-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: auto;
+  /* margin-right: 20px; */
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+  height: max-content;
+}
+
+.dashboard__stats-wrap {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0px 20px 0px;
+}
+
+.dashboard-stats {
+  background-color: #2a72de;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.dashboard__stats-left,
+.dashboard__stats-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.dashboard__stats-left h1,
+p,
+.dashboard__stats-right h1,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard__stats-left h1,
+.dashboard__stats-right h1 {
+  color: white;
+}
+
+.dashboard__stats-investments {
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.Link {
+  text-decoration: none;
+  color: white;
+}
+
+.dashboard-calls > h1 {
+  text-align: center;
+  color: #2a72de;
+}
+
+.dashboard-calls_wrap {
+  margin-bottom: 2rem;
+  display: flex;
+  background: #2a72de;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.dashboard__calls-left {
+  width: 30%;
+}
+
+.dashboard__calls-right {
+  width: 70%;
+}
+
+.dashboard__calls-right h1,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard__calls-right p {
+  color: white;
+}
+
+.dashboard__calls-date {
+  width: 60%;
+  justify-content: space-between;
+  display: flex;
+  color: black;
+  margin: 1rem 0rem 1rem 0rem;
+}
+
+.dashboard__calls-date p {
+  color: black;
+  font-weight: bold;
+}
+.dashboard__calls-btn {
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+  margin: 2rem 0rem 1rem 0rem;
+}
+
+.dashboard__calls-btn button {
+  font-size: 20px;
+  font-weight: 600;
+  width: 200px;
+  height: 45px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.dashboard__calls-btn-proceed {
+  margin-right: 1rem;
+}
+
+.dashboard__calls-btn-proceed:hover {
+  opacity: 0.8;
+}
+
+.dashboard__calls-btn-reschedule {
+  color: white;
+  background: black;
+}
+
+.dashboard__calls-btn-reschedule:hover {
+  opacity: 0.8;
+}
+
+.dashboard-blogs {
+  position: relative;
+}
+
+.dashboard__blogs-head {
+  height: 250px;
+  text-align: center;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.dashboard__blogs-bgImage {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  z-index: -1;
+}
+
+.dashboard__blogs-input {
+  background-color: whitesmoke;
+  padding: 18px;
+  width: 45%;
+  border-radius: 5px;
+  outline: none;
+  border: 2px solid white;
+  transform: translateY(11rem);
+}
+
+.dashboard__blogs-leftImg {
+  position: absolute;
+  left: -50px;
+  top: 38px;
+  width: 22.5%;
+}
+
+.dashboard__blogs-rightImg {
+  position: absolute;
+  right: 0px;
+  top: 30px;
+  width: 22.5%;
+}
+
+.dashboard__blogs-body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard__blogs__leftcontent {
+  width: 65%;
+  /* border: 2px solid black; */
+}
+.dashboard__blogs__leftcontentImg {
+  width: 100%;
+}
+
+.dashboard__blogs__rightcontent {
+  /* border: 2px solid black; */
+  width: 30%;
+}
+.dashboard__blogs__rightcontent img {
+  width: 100%;
+}
+
+.dashboard__startups > h1 {
+  text-align: center;
+}
+
+.dasboard__contact-wrap {
+  margin-top: 2rem;
+}
+
+.dasboard__contact-input {
+  background: #d9d9d9;
+  padding: 18px;
+  width: 76%;
+  border-radius: 8px;
+  outline: none;
+  border: 2px solid white;
+}
+
+.dasboard__contact-btn {
+  font-size: 20px;
+  padding: 14px 40px;
+  border-radius: 10px;
+  margin-left: 1rem;
+  border: none;
+  cursor: pointer;
+  background-color: #0077b7;
+  color: white;
+}
+
+.dasboard__contact-btn:hover {
+  opacity: 0.8;
+}
+
+.dashboard__startups-content {
+  background: linear-gradient(
+    236.51deg,
+    #012437 24.72%,
+    rgba(140, 150, 253, 0.42) 100%
+  );
+  display: flex;
+  color: white;
+  height: max-content;
+  justify-content: space-around;
+  padding: 40px;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard__startups-leftcontent {
+  /* border: 2px solid black; */
+}
+
+.dashboard__startups-content h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard__startups-content h4 {
+  margin: 0.5rem 0rem 0.5rem 0rem;
+  color: grey;
+}
+
+.dashboard__startups-rightcontent {
+  /* border: 2px solid black; */
+  width: 80%;
+}

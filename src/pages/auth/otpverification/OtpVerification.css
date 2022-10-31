@@ -1,0 +1,88 @@
+.otp-verify__navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #2a72de;
+}
+
+.otp-verify__logo {
+  width: 100px;
+  margin-top: 1rem;
+}
+
+.otp-verify__title {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 20px;
+  font-family: "Playfair Display", sans-serif;
+  font-weight: 800;
+}
+
+.otp-verify__card-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.otp-verify__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin: 3rem;
+  padding: 2.5rem 0;
+  background: #2a72de;
+  backdrop-filter: blur(24px);
+  border-radius: 21px;
+}
+
+.otp-verify__card-heading {
+  color: white;
+  margin-bottom: 2rem;
+  font-size: 30px;
+  cursor: default;
+  text-align: center;
+}
+
+.otp-verify__otp-input {
+  all: unset;
+  color: #000;
+  width: 300px;
+  margin: 0 2rem;
+  margin-bottom: 0.5rem;
+  background: rgba(217, 217, 217, 0.6);
+  border-radius: 4px;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.otp-verify__verify-otp {
+  width: 300px;
+  margin: 2rem;
+  font-size: 22px;
+  font-weight: 600;
+  background: #000;
+  border-radius: 4px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 1rem 0;
+}
+
+.otp-verify__verify-otp:hover {
+  opacity: 0.8;
+}
+
+.otp-verify__login {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  cursor: pointer;
+}
+
+.otp-verify__login:hover {
+  border-bottom: 2px solid #fff;
+}

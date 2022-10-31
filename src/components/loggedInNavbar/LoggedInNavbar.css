@@ -1,0 +1,56 @@
+.logged-in__navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 0 1px #535353;
+  background-color: #fff;
+  z-index: 5;
+}
+
+.logged-in__reverr {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  font-size: 20px;
+  font-family: "Playfair Display", sans-serif;
+  font-weight: 800;
+}
+
+.logged-in__title {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #2a72de;
+  cursor: default;
+}
+
+.logged-in__logo {
+  width: 100px;
+}
+
+.logged-in__links {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+  margin-right: 5rem;
+  font-size: 22px;
+}
+
+.logged-in__link {
+  margin: 0 2rem;
+  font-weight: 600;
+  color: #0077b7;
+  cursor: pointer;
+}
+
+.logged-in__link:hover {
+  opacity: 0.6;
+}

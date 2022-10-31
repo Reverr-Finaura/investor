@@ -1,0 +1,104 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: #fff;
+  box-shadow: 0 0 1px #535353;
+}
+
+.reverr {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  font-size: 20px;
+  font-family: "Playfair Display", sans-serif;
+  font-weight: 800;
+}
+
+.title {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #2a72de;
+  cursor: default;
+}
+
+.logo {
+  width: 100px;
+}
+
+.links {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+  margin-right: 2rem;
+  font-size: 22px;
+}
+
+.link {
+  all: unset;
+  margin: 0 2rem;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+.active {
+  color: #0077b7;
+  border-bottom: 2px solid #0077b7;
+}
+
+.link:hover {
+  color: #0077b7;
+  border-bottom: 2px solid #0077b7;
+}
+
+.login {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  width: 159px;
+  height: 45px;
+  background: #2a72de;
+  border: none;
+  border-radius: 10px;
+  margin-left: 25px;
+  cursor: pointer;
+}
+
+.login:hover {
+  opacity: 0.8;
+}
+
+.signup {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  width: 159px;
+  height: 45px;
+  background: white;
+  border: none;
+  border-radius: 10px;
+  margin-left: 25px;
+  cursor: pointer;
+  background: black;
+}
+
+.signup:hover {
+  opacity: 0.8;
+}
+
+@media screen and (width<1000px) {
+  .links {
+    display: none;
+  }
+}

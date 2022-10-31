@@ -1,0 +1,275 @@
+.profile {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.profile__side-nav {
+  width: 12%;
+  margin: 0 0rem 0 5rem;
+}
+
+.profile__right-wrap {
+  display: flex;
+  width: 75%;
+  margin: auto;
+  /* margin-right: 20px; */
+  margin-bottom: 2rem;
+  height: max-content;
+  color: white;
+}
+
+.profile__bio,
+.profile__stats,
+.profile__contact {
+  background-color: #000000;
+  border-radius: 20px;
+}
+
+.profile__bio {
+  height: 500px;
+  width: 60%;
+}
+
+.profile__bio p {
+  width: 85%;
+  margin: auto;
+  margin-top: 3rem;
+}
+.profile__social {
+  width: 30%;
+  margin-left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile__stats {
+  width: 100%;
+  height: max-content;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.profile__contact {
+  width: 100%;
+  height: 140px;
+}
+
+.profile__bio-content {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.profile__bio__content__img {
+  width: 40%;
+}
+
+.profile__bio__content__img img {
+  width: 80%;
+  border: 3px solid blue;
+}
+
+.profile__bio__content-text {
+  width: 55%;
+}
+
+.profile__bio__content-text h2,
+h3 {
+  margin: 0;
+}
+
+.profile__bio__content-text h2 {
+  margin-top: 1rem;
+}
+
+.profile__bio__content-text h3 {
+  margin-bottom: 4px;
+}
+
+.profile__stats h4,
+.profile__contact h2 {
+  font-family: Playfair Display;
+  width: 80%;
+  margin: auto;
+  margin-top: 14px;
+  color: #0077b7;
+}
+
+.profile__stats h5 {
+  width: 80%;
+  margin: auto;
+  margin-top: 5px;
+}
+
+.profile__contact {
+  text-align: center;
+}
+
+.profile__contact-Img {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.profile__contact-Img img {
+  width: 40%;
+}
+
+.profile__contact-Img a {
+  text-decoration: none;
+  width: 40%;
+}
+
+.profile_edit {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.profile_edit h4 {
+  font-weight: 300;
+  cursor: pointer;
+  width: 20%;
+}
+
+/* Edit */
+
+.profile__bio-contentedit {
+  margin-top: 4rem;
+}
+
+.profile__bioedit {
+  height: 550px;
+}
+
+.profile__statsedit {
+  height: max-content;
+}
+
+.profile__contactedit {
+  height: 160px;
+}
+
+.profile__bio__content-edit {
+  background-color: transparent;
+  border: 5px solid #0077b7;
+  border-radius: 8px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile__bio__content-editH3 {
+  color: #0077b7;
+  margin: 0;
+}
+
+.profile__bio__content-edit label {
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.profile__bio__content-edit input {
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 0.1px;
+  z-index: -1;
+}
+
+.profile__bio__content-textedit {
+  /* border: 2px solid wheat; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.profile__bio__content-text input,
+.profile__statsedit input,
+.profile__contact-Imgedit input {
+  padding: 15px 20px;
+  background-color: #d9d9d9;
+  border-radius: 8px;
+  outline: none;
+  font-weight: bold;
+  width: 80%;
+}
+
+.textarea-wrap {
+  width: 80%;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.textarea-wrap textarea {
+  width: 90%;
+  height: 100px;
+  background-color: transparent;
+  border: 3px solid #0077b7;
+  outline: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 20px;
+  resize: vertical;
+}
+
+.profile__statsedit {
+  text-align: center;
+}
+.profile__statsedit input,
+.profile__contact-Imgedit input {
+  width: 50%;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-top: 3px;
+}
+
+.profile__contact-Imgedit input {
+  margin-top: 4px;
+}
+.profile__contact-Imgedit {
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2px;
+  width: 100%;
+}
+
+.edit-saveChanges {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+.edit-SaveChangesBtn {
+  all: unset;
+  text-align: center;
+  color: #fff;
+  background: #0077b7;
+  border-radius: 5px;
+  padding: 0.5rem 4rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.diabled {
+  cursor: not-allowed;
+}
+
+.add-discription__Btn-wrap {
+  margin-top: 10%;
+}

@@ -1,0 +1,128 @@
+.footer {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2rem 0;
+  background-color: #0a0e14;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  width: 33%;
+  color: white;
+  margin-top: 2.5rem;
+  margin-left: 5rem;
+}
+
+.footer-text {
+  font-size: 20px;
+  width: 350px;
+}
+
+.footer-right {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  width: 55%;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: white;
+  line-height: 3rem;
+  font-size: 20px;
+}
+
+.footer__link {
+  width: fit-content;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+}
+
+.footer__link:hover {
+  border-bottom: 1px solid white;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: white;
+  line-height: 3rem;
+  font-size: 20px;
+}
+
+.footer-social > div {
+  margin-left: 0.5rem;
+}
+
+.footer__social-links {
+  display: flex;
+  align-items: center;
+}
+
+.footer__social-link > img {
+  width: 1.5rem;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 5px solid white;
+  cursor: pointer;
+}
+
+.footer__social-link:hover {
+  opacity: 0.8;
+}
+
+.footer__social-link {
+  margin-right: 1rem;
+  margin-top: 1.5rem;
+  object-fit: contain;
+  padding: 0;
+  box-shadow: rgba(0, 0, 0, 0.25);
+  height: fit-content;
+}
+
+@media (max-width: 1028px) {
+  .footer {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .footer-content {
+    align-items: center;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .footer-right {
+    align-items: center;
+    width: 100%;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-right {
+    flex-direction: column;
+  }
+
+  .footer-links__wrap {
+    display: flex;
+  }
+
+  .footer-social {
+    align-items: center;
+  }
+
+  .footer-links {
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+}

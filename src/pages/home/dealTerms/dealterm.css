@@ -1,0 +1,120 @@
+.deal-term {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.deal-term__side-nav {
+  width: 12%;
+  margin: 0 0rem 0 5rem;
+}
+
+.deal-term__right-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: auto;
+  /* margin-right: 20px; */
+  margin-bottom: 2rem;
+  height: max-content;
+}
+
+.deal-term__document-content {
+  border: 5px solid #0077b7;
+  display: flex;
+  height: max-content;
+  font-weight: bold;
+}
+
+.deal-term__document-left__content {
+  width: 52%;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.deal-term__document-right__content {
+  width: 40%;
+  background-color: #2a72de78;
+  display: flex;
+  flex-direction: column;
+  padding: 2% 2rem;
+}
+
+.deal-term__right__content1,
+.deal-term__right__content2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deal-term__download,
+.deal-term_interestedBtn {
+  all: unset;
+  text-align: center;
+  color: #fff;
+  background: #0077b7;
+  border-radius: 5px;
+  padding: 0.5rem 4rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.deal-term_interestedBtn:hover {
+  opacity: 0.8;
+}
+
+.deal-term__download:hover {
+  opacity: 0.8;
+}
+
+.deal-term_interestedBtn {
+  margin-top: 2rem;
+  width: 60%;
+}
+
+.deal-term__terms-content {
+  background-color: #000000;
+  color: white;
+  padding: 50px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.deal-term__terms-progress-wrap {
+  /* border: 2px solid white; */
+  text-align: left;
+}
+
+.deal-term__terms-progress-wrap h3 {
+  margin: 0;
+}
+
+.deal-term__terms-progress-wrap progress {
+  width: 100%;
+  padding: 20px;
+}
+
+.deal-term__terms-stats {
+  width: 80%;
+  margin: auto;
+}
+
+.deal-term__terms__stats-head,
+.deal-term__terms__stats-body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.deal-term__terms__stats-head h3 {
+  margin-bottom: 1px;
+}
+
+.deal-term__terms__stats-body {
+  width: 96%;
+}
+
+.deal-term__terms__stats-body h3 {
+  margin: 0;
+  color: #8b8b8b;
+}
