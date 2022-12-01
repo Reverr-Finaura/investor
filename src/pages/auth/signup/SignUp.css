@@ -38,7 +38,8 @@
 }
 
 .signup-card {
-  width: max-content;
+  /* width: max-content; */
+  width: 67%;
   height: max-content;
   margin: 4rem auto;
   border-radius: 26px;

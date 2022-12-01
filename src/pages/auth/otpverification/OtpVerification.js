@@ -25,8 +25,10 @@ const OtpVerification = () => {
   const otp = useSelector((state) => state.newUser.otp);
   const onVerifyOtpClickHandler = async () => {
     if (user) {
-      const { firstName, lastName, email, password } = user;
-      const name = `${firstName} ${lastName}`;
+      // const { firstName, lastName, email, password } = user;
+      // const name = `${firstName} ${lastName}`;
+      const { fullName, email, password } = user;
+      const name = fullName
       if (otp === otpInput) {
         await createUserWithEmailPassword(email, password).then((data) => {
           const { uid } = data.user;

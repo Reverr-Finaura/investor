@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import SignIn from "../pages/auth/signin/SignIn";
 import SignUp from "../pages/auth/signup/SingUp";
+import SignUpNew from "../pages/auth/signup/SignUpNew"
 import ForgotPassword from "../pages/auth/forgotpassword/ForgotPassword";
 import ResetPassword from "../pages/auth/resetpassword/ResetPassword";
 import OtpVerification from "../pages/auth/otpverification/OtpVerification";
@@ -39,7 +40,7 @@ const AppRoutes = () => {
         path="/signUp"
         element={
           // <AuthRoute>
-          <SignUp />
+          <SignUpNew />
           // </AuthRoute>
         }
       />

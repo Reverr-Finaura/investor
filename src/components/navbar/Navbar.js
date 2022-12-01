@@ -18,7 +18,7 @@ const Navbar = () => {
     <div id="navbar" className="navbar">
       <div className="reverr">
         <img src={logo} alt="reverr-logo" className="logo" />
-        <div className="title">REVERR VENTURE PARTNERS</div>
+        <div className="title">REVERR</div>
       </div>
       <div className="links">
         <NavLink to="/home" className="link">
