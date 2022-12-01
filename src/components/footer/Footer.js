@@ -15,7 +15,7 @@ const Footer = () => {
           apps, enterprise use cases and the new internet economy.
           <br />
           <br />
-          info@yoursite.com
+          support@reverrapp.com
         </p>
       </div>
       <div className="footer-right">

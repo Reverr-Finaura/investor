@@ -16,12 +16,12 @@ const Navbar = () => {
 
   return (
     <div id="navbar" className="navbar">
-      <div className="reverr">
+      <div style={{cursor:"pointer"}} onClick={()=>navigate("/")} className="reverr">
         <img src={logo} alt="reverr-logo" className="logo" />
         <div className="title">REVERR</div>
       </div>
       <div className="links">
-        <NavLink to="/home" className="link">
+        {/* <NavLink to="/home" className="link">
           Home
         </NavLink>
         <NavLink to="/startups" className="link">
@@ -36,7 +36,7 @@ const Navbar = () => {
           style={{ textAlign: "center" }}
         >
           About Us
-        </NavLink>
+        </NavLink> */}
         <button className="login" onClick={loginButtonClickHandler}>
           Log in
         </button>
