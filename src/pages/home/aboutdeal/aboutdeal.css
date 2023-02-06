@@ -26,7 +26,9 @@
 .aboutdeal__head {
   display: flex;
   justify-content: space-between;
-  height: 300px;
+  flex-direction: column-reverse;
+  gap: 2rem;
+  /* height: 300px; */
 }
 
 .aboutdeal__head-content {
@@ -36,7 +38,8 @@
 .aboutdeal__logo {
   text-align: center;
   width: 10%;
-  align-self: flex-end;
+
+  align-self: flex-start;
 }
 
 .aboutdeal__logo > h1 {
@@ -138,4 +141,11 @@
   border-radius: 10px;
   color: white;
   line-height: 3rem;
+}
+
+.background_img_deal {
+  width: 100%;
+  border-radius: 12px;
+  height: 300px;
+  /* margin-bottom: rem; */
 }

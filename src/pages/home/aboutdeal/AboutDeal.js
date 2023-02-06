@@ -18,6 +18,7 @@ const AboutDeal = () => {
 
   const { deal_Id } = useParams();
   const deal = useSelector((state) => state.deal.deal);
+  console.log(deal);
   // const [deal, setDeal] = useState([]);
   // const fetchDeal = useCallback(async () => {
   //   setIsLoading(true);
@@ -49,6 +50,10 @@ const AboutDeal = () => {
   } = dealDetails;
   const { videoLink, twitter, instagram, linkedIn, website } = Links;
   const { logo } = cardImages;
+
+  const logo_img =
+    logo?.logoUrl ||
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGJH3s_18P9k8rqfuiohu-MVfh2lB6UkwrSA1l9-Zv&s";
   const getRemainingDays = () => {
     let remainingDays = 31 - date.substring(8, date.length);
     return remainingDays;
@@ -85,14 +90,22 @@ const AboutDeal = () => {
                     <h1>{name}</h1>
                   </div>
 
-                  <iframe
-                    className="aboutdeal__video"
-                    src={videoUrlEmbed(videoLink)}
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  />
+                  {videoLink ? (
+                    <iframe
+                      className="aboutdeal__video"
+                      src={videoUrlEmbed(videoLink)}
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <img
+                      className="background_img_deal"
+                      src={logo_img}
+                      alt="logo"
+                    />
+                  )}
                 </div>
                 <div className="aboutdeal__head-content">
                   <h3>{type}</h3>
