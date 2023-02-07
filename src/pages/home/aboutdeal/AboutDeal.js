@@ -36,7 +36,7 @@ const AboutDeal = () => {
     Links,
   } = deal;
 
-  const { description } = dealDescription;
+  const { description } = deal?.dealDescription;
   const {
     name,
     raised,
@@ -51,9 +51,7 @@ const AboutDeal = () => {
   const { videoLink, twitter, instagram, linkedIn, website } = Links;
   const { logo } = cardImages;
 
-  const logo_img =
-    logo?.logoUrl ||
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGJH3s_18P9k8rqfuiohu-MVfh2lB6UkwrSA1l9-Zv&s";
+  const logo_img = logo?.logoUrl || "https://i.imgur.com/es6VRIM.jpg";
   const getRemainingDays = () => {
     let remainingDays = 31 - date.substring(8, date.length);
     return remainingDays;
@@ -78,15 +76,18 @@ const AboutDeal = () => {
               <>
                 <div className="aboutdeal__head">
                   <div className="aboutdeal__logo">
-                    <img
-                      style={{
-                        width: "100%",
-                        borderRadius: "50%",
-                        boxShadow: "0 0 3px #ccc",
-                      }}
-                      src={logo.logoUrl}
-                      alt="logo"
-                    />
+                    <div className="logo_image">
+                      <img
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          borderRadius: "50%",
+                          boxShadow: "0 0 3px #ccc",
+                        }}
+                        src={logo_img}
+                        alt="logo"
+                      />
+                    </div>
                     <h1>{name}</h1>
                   </div>
 
