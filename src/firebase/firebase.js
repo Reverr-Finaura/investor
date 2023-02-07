@@ -129,7 +129,10 @@ export const fetchDealFromDatabase = async (deal_Id) => {
     let Deal;
     await (
       await getDocs(
-        query(collection(database, `Investordeals`), where("id", "==", `${deal_Id}`))
+        query(
+          collection(database, `Investordeals`),
+          where("id", "==", `${deal_Id}`)
+        )
       )
     ).forEach((doc) => {
       Deal = { ...doc.data() };
@@ -187,5 +190,17 @@ export const uploadMedia = async (media, path) => {
     return mediaLink;
   } catch (err) {
     console.log("Err: ", err);
+  }
+};
+
+export const addUserToMetadata = async (email, id) => {
+  try {
+    const prevData = await getDoc(doc(database, "metaData", "investoroid"));
+
+    await updateDoc(doc(database, "metaData", "investoroid"), {
+      users: [...prevData.data().users, { email, id }],
+    });
+  } catch (error) {
+    console.log(error);
   }
 };

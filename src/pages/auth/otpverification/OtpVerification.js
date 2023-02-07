@@ -10,6 +10,7 @@ import { delOtp, delUser } from "../../../redux/auth/newUserSlice";
 import { login } from "../../../redux/user/userSlice";
 import {
   addUserInDatabase,
+  addUserToMetadata,
   createUserWithEmailPassword,
 } from "../../../firebase/firebase";
 import { sendAccountHasBeenCreatedMail } from "../../../emailJs/emailjs";
@@ -28,15 +29,17 @@ const OtpVerification = () => {
       // const { firstName, lastName, email, password } = user;
       // const name = `${firstName} ${lastName}`;
       const { fullName, email, password } = user;
-      const name = fullName
+      const name = fullName;
       if (otp === otpInput) {
         await createUserWithEmailPassword(email, password).then((data) => {
-          const { uid } = data.user;
+          const { uid, email } = data.user;
           console.log("Otp-ID : ", uid);
-          addUserInDatabase(uid, {
+          
+          addUserInDatabase(email, {
             ...user,
             uid,
           });
+          addUserToMetadata(email, uid);
         });
 
         await sendAccountHasBeenCreatedMail(name, email);

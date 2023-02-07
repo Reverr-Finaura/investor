@@ -15,8 +15,8 @@ import Select from "react-select";
 
 const SignUp = () => {
   // window.scrollTo(0, 0);
-  
-  const[fullName,setFullName]=useState("")
+
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState("");
   const [country, setCountry] = useState("");
@@ -24,14 +24,12 @@ const SignUp = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [referredBy,setReferredBy]=useState("")
+  const [referredBy, setReferredBy] = useState("");
   const [stageOfInvestment, setStageOfInvestment] = useState("");
   const [amount, setAmount] = useState("");
   const [experienceOfInvesting, setExperienceOfInvesting] = useState("");
   const [sectorsOfInvesting, setSectorsOfInvesting] = useState([]);
 
-
-  
   const dispatch = useDispatch();
   const [personalDetailsTabActive, setPersonalDetailsTabActive] =
     useState(true);
@@ -40,12 +38,22 @@ const SignUp = () => {
   const newUser = useSelector((state) => state.newUser);
   const navigate = useNavigate();
 
-  
-
   const onCreateAccountClickHandler = async () => {
-
-    if(fullName===""||email===""||password===""||confirmPassword===""||linkedInUrl===""||!phoneNumber){toast.error("Kindly Fill Mandatory Fields");return}
-    if(password!==confirmPassword){toast.error("Password Must Match");return;}
+    if (
+      fullName === "" ||
+      email === "" ||
+      password === "" ||
+      confirmPassword === "" ||
+      linkedInUrl === "" ||
+      !phoneNumber
+    ) {
+      toast.error("Kindly Fill Mandatory Fields");
+      return;
+    }
+    if (password !== confirmPassword) {
+      toast.error("Password Must Match");
+      return;
+    }
     const otp = generateOtp();
     const user = {
       fullName,
@@ -70,13 +78,16 @@ const SignUp = () => {
       userImg: null,
     };
     const userName = fullName;
+
+
     dispatch(createUser(user));
     dispatch(setOtp(otp));
     sendOtpToMail(userName, email, otp);
+
+
+    
     navigate("/otp-verify");
   };
-
-  
 
   return (
     <>
@@ -98,7 +109,8 @@ const SignUp = () => {
           <div className="signup__right">
             <div className="signup-card">
               <div className="details-tab">
-                <button style={{cursor:"default"}}
+                <button
+                  style={{ cursor: "default" }}
                   className={
                     personalDetailsTabActive
                       ? "personal-details__tab-button personal-details__tab-button-active"
@@ -133,12 +145,12 @@ const SignUp = () => {
                     className="input-box"
                     placeholder="example@reverr.com"
                   />
-                  
+
                   <label>
                     Phone Number <span className="important">*</span>
                   </label>
                   <input
-                  type="number"
+                    type="number"
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(Number(e.target.value))}
                     className="input-box"
@@ -175,7 +187,8 @@ const SignUp = () => {
                     placeholder="Enter your LinkedIn URL"
                   />
                   <label>
-                    Referred By (Partner Name) <span className="important"></span>
+                    Referred By (Partner Name){" "}
+                    <span className="important"></span>
                   </label>
                   <input
                     value={referredBy}
@@ -183,7 +196,7 @@ const SignUp = () => {
                     className="input-box"
                     placeholder="Enter your Referral Name"
                   />
-                  
+
                   <button
                     onClick={onCreateAccountClickHandler}
                     className="signup-button"
@@ -198,14 +211,16 @@ const SignUp = () => {
                       color: "white",
                       marginBottom: "2rem",
                     }}
-                  > Already have an account?{" "}
+                  >
+                    {" "}
+                    Already have an account?{" "}
                     <Link to="/" className="bottom-sign-in-link">
                       Sign In
                     </Link>
                   </div>
                 </div>
               )}
-             </div>
+            </div>
           </div>
         </div>
       </div>

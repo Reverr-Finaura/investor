@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import SignIn from "../pages/auth/signin/SignIn";
 import SignUp from "../pages/auth/signup/SingUp";
-import SignUpNew from "../pages/auth/signup/SignUpNew"
+import SignUpNew from "../pages/auth/signup/SignUpNew";
 import ForgotPassword from "../pages/auth/forgotpassword/ForgotPassword";
 import ResetPassword from "../pages/auth/resetpassword/ResetPassword";
 import OtpVerification from "../pages/auth/otpverification/OtpVerification";
@@ -24,6 +24,7 @@ import HomePage from "../pages/homePage/HomePage";
 import Blogs from "../pages/blogs/Blogs";
 import NotFound from "../pages/NotFound/NotFound";
 import AuthRoute from "./AuthRoute";
+import NewProtectedRoute from "./NewProtectedRoute";
 
 const AppRoutes = () => {
   return (
@@ -89,99 +90,51 @@ const AppRoutes = () => {
       <Route path="/dashboard/:blog_Id/blog" element={<Blogs />} />
       <Route
         path="/dashboard"
-        element={
-          <ProtectedRoute>
-            <Dashboard />
-          </ProtectedRoute>
-        }
+        element={<NewProtectedRoute Components={<Dashboard />} />}
       />
       <Route
         path="/deals"
-        element={
-          <ProtectedRoute>
-            <Deals />
-          </ProtectedRoute>
-        }
+        element={<NewProtectedRoute Components={<Deals />} />}
       />
       <Route
         path="/portfolio"
-        element={
-          <ProtectedRoute>
-            <Portfolio />
-          </ProtectedRoute>
-        }
+        element={<NewProtectedRoute Components={<Portfolio />} />}
       />
       <Route
         path="/profile"
-        element={
-          <ProtectedRoute>
-            <Profile />
-          </ProtectedRoute>
-        }
+        element={<NewProtectedRoute Components={<Profile />} />}
       />
       <Route
         path="/deals/:deal_Id"
-        element={
-          <ProtectedRoute>
-            <AboutDeal />
-          </ProtectedRoute>
-        }
+        element={<NewProtectedRoute Components={<AboutDeal />} />}
       />
       <Route
         path="/faqs"
-        element={
-          <ProtectedRoute>
-            <Faq />
-          </ProtectedRoute>
-        }
+        element={<NewProtectedRoute Components={<Faq />} />}
       />
       <Route
         path="/one-pager"
-        element={
-          <ProtectedRoute>
-            <OnePager />
-          </ProtectedRoute>
-        }
+        element={<NewProtectedRoute Components={<OnePager />} />}
       />
       <Route
         path="/people"
-        element={
-          <ProtectedRoute>
-            <People />
-          </ProtectedRoute>
-        }
+        element={<NewProtectedRoute Components={<People />} />}
       />
       <Route
         path="/deal-terms"
-        element={
-          <ProtectedRoute>
-            <DealTerm />
-          </ProtectedRoute>
-        }
+        element={<NewProtectedRoute Components={<DealTerm />} />}
       />
       <Route
         path="/pitch-deck"
-        element={
-          <ProtectedRoute>
-            <PitchDeck />
-          </ProtectedRoute>
-        }
+        element={<NewProtectedRoute Components={<PitchDeck />} />}
       />
       <Route
         path="/financial-projections"
-        element={
-          <ProtectedRoute>
-            <FinancialProjection />
-          </ProtectedRoute>
-        }
+        element={<NewProtectedRoute Components={<FinancialProjection />} />}
       />
       <Route
         path="/analytics"
-        element={
-          <ProtectedRoute>
-            <Analytics />
-          </ProtectedRoute>
-        }
+        element={<NewProtectedRoute Components={<Analytics />} />}
       />
       <Route path="/*" element={<NotFound />} />
     </Routes>

@@ -25,7 +25,7 @@ const SideNav = () => {
       <NavLink
         onClick={() => {
           dispatch(logout());
-          localStorage.removeItem("uid");
+          localStorage.removeItem("login");
         }}
         to="/"
         className="NavLink NavLink__Logout "

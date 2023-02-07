@@ -1,4 +1,5 @@
 import {
+  addUserToMetadata,
   getAdminsFromDatabase,
   getUserFromDatabase,
   signIn,
@@ -46,13 +47,27 @@ const SignIn = () => {
       signIn(email, password)
         .then(async (data) => {
           const { uid } = data.user;
+
+          console.log(data.user);
+
           const user = await getUserFromDatabase(uid);
+          console.log(user);
+          if (!user?.userType) {
+            toast("Please Enter Investor credentials");
+            setIsLoading(false);
+          }
           // dispatch(fetchUserData());
           // dispatch(login(user));
-          localStorage.setItem("uid", JSON.stringify(uid));
-          navigate("/dashboard");
-          window.scrollTo(0, 0);
-          setIsLoading(false);
+          if (user?.userType !== "Investor") {
+            toast("Please Enter Investor credentials");
+            console.log("63");
+          } else {
+            localStorage.setItem("login", true);
+            navigate("/dashboard");
+
+            setIsLoading(false);
+            window.scrollTo(0, 0);
+          }
         })
         .catch((err) => {
           setIsLoading(false);
@@ -126,7 +141,7 @@ const SignIn = () => {
             <div className="social-login-icons">
               <img
                 src={google}
-                style={{margin: "auto"}}
+                style={{ margin: "auto" }}
                 alt="google"
                 onClick={onSignInWithGoogleClickHandler}
                 width="40px"
