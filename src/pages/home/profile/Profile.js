@@ -11,14 +11,18 @@ import { ImageFill, Pencil } from "react-bootstrap-icons";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../../../redux/user/userSlice";
-import { updateUserInDatabse, uploadMedia } from "../../../firebase/firebase";
+import {
+  getUserFromDatabase,
+  updateUserInDatabse,
+  uploadMedia,
+} from "../../../firebase/firebase";
 import Select from "react-select";
 
 const Profile = () => {
   const [isEditable, setIsEditable] = useState(false);
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
-  // console.log(user);
+  console.log(user);
   const {
     firstName,
     lastName,
@@ -363,7 +367,7 @@ const Profile = () => {
                 <div className="profile__stats ">
                   <h4>Sectors for Investment</h4>
                   <h5>
-                    {sectorsOfInvesting.map((sector) => (
+                    {sectorsOfInvesting?.map((sector) => (
                       <sapn
                         style={{
                           backgroundColor: "#535353",

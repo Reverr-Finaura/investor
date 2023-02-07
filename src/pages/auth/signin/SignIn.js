@@ -65,6 +65,8 @@ const SignIn = () => {
             localStorage.setItem("login", true);
             navigate("/dashboard");
 
+            dispatch(login(data.user));
+
             setIsLoading(false);
             window.scrollTo(0, 0);
           }

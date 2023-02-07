@@ -149,7 +149,9 @@ export const fetchDealsFromDatabase = async () => {
     await (
       await getDocs(collection(database, `Investordeals`))
     ).forEach((doc) => {
-      deals.push({ ...doc.data() });
+      if(doc.data().live){
+        deals.push({ ...doc.data() });
+      }
     });
     return deals;
   } catch (err) {
