@@ -37,16 +37,18 @@ const Dashboard = () => {
   const [isVisible, setIsVisible] = useState(false);
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
-  const [user, setUser] = useState([]);
-  const { calls } = user;
-  const uid = JSON.parse(localStorage.getItem("uid"));
+  // const [user, setUser] = useState([]);
+  const user = useSelector((state) => state.user.user);
+  // const { calls } = user;
 
-  const fetchUser = async () => {
-    const results = await getUserFromDatabase("lQqFJTJBiAaaROvSfro0q8eXsB32");
-    dispatch(login(results));
-    setUser(results);
-    // console.log(user);
-  };
+  // const uid = JSON.parse(localStorage.getItem("uid"));
+
+  // const fetchUser = async () => {
+  //   const results = await getUserFromDatabase("");
+  //   dispatch(login(results));
+  //   setUser(results);
+  //   // console.log(user);
+  // };
 
   const fetchBlogs = useCallback(async () => {
     setIsLoading(true);
@@ -56,7 +58,7 @@ const Dashboard = () => {
   }, []);
 
   useEffect(() => {
-    fetchUser();
+    // fetchUser();
     fetchBlogs();
   }, []);
 

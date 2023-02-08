@@ -55,6 +55,7 @@ const SignUp = () => {
       return;
     }
     const otp = generateOtp();
+
     const user = {
       fullName,
       email,
@@ -79,13 +80,10 @@ const SignUp = () => {
     };
     const userName = fullName;
 
-
     dispatch(createUser(user));
     dispatch(setOtp(otp));
     sendOtpToMail(userName, email, otp);
 
-
-    
     navigate("/otp-verify");
   };
 

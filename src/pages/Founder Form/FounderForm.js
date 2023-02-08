@@ -1,153 +1,164 @@
-import { collection, getDocs } from 'firebase/firestore'
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { addCompletedFormUniqueIdToFirebase, addDealInDatabase, addUniqueIdToFirebase, database, uploadMedia } from '../../firebase/firebase'
-import styles from "./FounderForm.module.css"
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
-  import { uidGenerator } from '../../utils/uidGenerator'
-  import { dateGenerator } from '../../utils/utils'
-import AddAdvisor from './Add Advisor/AddAdvisor'
-import AddFaq from './Add FAQ/AddFaq'
-import AddHighlight from './Add Highlight/AddHighlight'
-import AddInvestor from './Add Investor/AddInvestor'
-import AddFounder from './Add Founder/AddFounder'
+import { collection, getDocs } from "firebase/firestore";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import {
+  addCompletedFormUniqueIdToFirebase,
+  addDealInDatabase,
+  addUniqueIdToFirebase,
+  database,
+  uploadMedia,
+} from "../../firebase/firebase";
+import styles from "./FounderForm.module.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { uidGenerator } from "../../utils/uidGenerator";
+import { dateGenerator } from "../../utils/utils";
+import AddAdvisor from "./Add Advisor/AddAdvisor";
+import AddFaq from "./Add FAQ/AddFaq";
+import AddHighlight from "./Add Highlight/AddHighlight";
+import AddInvestor from "./Add Investor/AddInvestor";
+import AddFounder from "./Add Founder/AddFounder";
 import { HourglassSplit, Pen, Trash } from "react-bootstrap-icons";
 import Select from "react-select";
 
 const FounderForm = () => {
+  const uniqueId = useParams().form_Id;
 
-    const uniqueId=useParams().form_Id
+  const [name, setName] = useState("");
+  const [industry, setIndustry] = useState("");
+  const [raised, setRaised] = useState("");
+  const [type, setType] = useState("");
+  const [firm, setFirm] = useState("");
+  const [date, setDate] = useState("");
+  const [shortDesc, setShortDesc] = useState("");
+  const [description, setDescription] = useState("");
+  const [instagram, setInstagram] = useState("");
+  const [twitter, setTwitter] = useState("");
+  const [linkedIn, setLinkedIn] = useState("");
+  const [videoLink, setVideoLink] = useState("");
+  const [website, setWebsite] = useState("");
+  const [pitchDeckMedia, setPitchDeckMedia] = useState("");
+  const [projectionMedia, setProjectionMedia] = useState("");
+  const [logo, setLogo] = useState("");
+  const [bgImg, setBgImg] = useState("");
+  const [dealsAddLoading, setDealsAddLoading] = useState(false);
+  const [due_Diligence, setDue_Dilligence] = useState(false);
+  const [dealLive, setDealLive] = useState(true);
+  const [headquarter, setHeadquarter] = useState("");
+  const [noOfEmployees, setNoOfEmployees] = useState("");
+  const [sectorsOfInvestment, setSectorsOfInvestment] = useState([]);
+  const [incorporationDate, setIncorporationDate] = useState("");
+  const [preMoneyValuation, setPreMoneyValuation] = useState(0);
+  const [minimumInvestment, setMinimumInvestment] = useState(0);
+  const [companyDescription, setCompanyDescription] = useState("");
+  const [problem, setProblem] = useState("");
+  const [solution, setSolution] = useState("");
+  const [tam, setTam] = useState(0);
+  const [sam, setSam] = useState(0);
+  const [som, setSom] = useState(0);
+  const [competitiveLandscape, setCompetitiveLandscape] = useState("");
+  const [revenueModal, setRevenueModal] = useState("");
+  const [growthStategy, setGrowthStrategy] = useState("");
+  const [marketTraction, setMarketTraction] = useState("");
+  const [fundingAmt, setFundingAmt] = useState("");
+  const [formUniqueId, setFormUniqueId] = useState([]);
+  const [formCompletedUniqueId, setFormCompletedUniqueId] = useState([]);
+  console.log("ui", formUniqueId, "cui", formCompletedUniqueId);
+  const sectors = [
+    { value: 1, label: "Agricultural" },
+    { value: 2, label: "Apparel & Accessories" },
+    { value: 3, label: "Automobile & Ancillaries" },
+    { value: 4, label: "Banking" },
+    { value: 5, label: "Consumer Durables" },
+    { value: 6, label: "Derived Materials" },
+    { value: 7, label: "Energy" },
+    { value: 8, label: "Financial" },
+    { value: 9, label: "FMCG" },
+    { value: 10, label: "Food and Beverages" },
+    { value: 11, label: "Healthcare" },
+    { value: 12, label: "Hospitality and Travel" },
+    { value: 13, label: "Industrial Products" },
+    { value: 14, label: "Industries" },
+    { value: 15, label: "IT Industry" },
+    { value: 16, label: "Logistics and Freight" },
+    { value: 17, label: "Media & Entertainment" },
+    { value: 18, label: "Raw Material" },
+    { value: 19, label: "Tele-Communication" },
+    { value: 20, label: "Textile Industry" },
+    { value: 21, label: "Others" },
+  ];
 
-    const [name, setName] = useState("");
-    const [industry, setIndustry] = useState("");
-    const [raised, setRaised] = useState("");
-    const [type, setType] = useState("");
-    const [firm, setFirm] = useState("");
-    const [date, setDate] = useState("");
-    const [shortDesc, setShortDesc] = useState("");
-    const [description, setDescription] = useState("");
-    const [instagram, setInstagram] = useState("");
-    const [twitter, setTwitter] = useState("");
-    const [linkedIn, setLinkedIn] = useState("");
-    const [videoLink, setVideoLink] = useState("");
-    const [website, setWebsite] = useState("");
-    const [pitchDeckMedia, setPitchDeckMedia] = useState("");
-    const [projectionMedia, setProjectionMedia] = useState("");
-    const [logo, setLogo] = useState("");
-    const [bgImg, setBgImg] = useState("");
-    const [dealsAddLoading, setDealsAddLoading] = useState(false);
-    const [due_Diligence, setDue_Dilligence] = useState(false);
-    const [dealLive,setDealLive]=useState(true)
-    const [headquarter, setHeadquarter] = useState("");
-    const [noOfEmployees, setNoOfEmployees] = useState("");
-    const [sectorsOfInvestment, setSectorsOfInvestment] = useState([]);
-    const [incorporationDate, setIncorporationDate] = useState("");
-    const [preMoneyValuation, setPreMoneyValuation] = useState(0);
-    const [minimumInvestment, setMinimumInvestment] = useState(0);
-    const [companyDescription, setCompanyDescription] = useState("");
-    const [problem, setProblem] = useState("");
-    const [solution, setSolution] = useState("");
-    const [tam, setTam] = useState(0);
-    const [sam, setSam] = useState(0);
-    const [som, setSom] = useState(0);
-    const [competitiveLandscape, setCompetitiveLandscape] = useState("");
-    const [revenueModal, setRevenueModal] = useState("");
-    const [growthStategy, setGrowthStrategy] = useState("");
-    const [marketTraction, setMarketTraction] = useState("");
-    const [fundingAmt, setFundingAmt] = useState("");
-    const[formUniqueId,setFormUniqueId]=useState([])
-    const[formCompletedUniqueId,setFormCompletedUniqueId]=useState([])
-console.log("ui",formUniqueId,"cui",formCompletedUniqueId)
-    const sectors = [
-        { value: 1, label: "Agricultural" },
-        { value: 2, label: "Apparel & Accessories" },
-        { value: 3, label: "Automobile & Ancillaries" },
-        { value: 4, label: "Banking" },
-        { value: 5, label: "Consumer Durables" },
-        { value: 6, label: "Derived Materials" },
-        { value: 7, label: "Energy" },
-        { value: 8, label: "Financial" },
-        { value: 9, label: "FMCG" },
-        { value: 10, label: "Food and Beverages" },
-        { value: 11, label: "Healthcare" },
-        { value: 12, label: "Hospitality and Travel" },
-        { value: 13, label: "Industrial Products" },
-        { value: 14, label: "Industries" },
-        { value: 15, label: "IT Industry" },
-        { value: 16, label: "Logistics and Freight" },
-        { value: 17, label: "Media & Entertainment" },
-        { value: 18, label: "Raw Material" },
-        { value: 19, label: "Tele-Communication" },
-        { value: 20, label: "Textile Industry" },
-        { value: 21, label: "Others" },
-      ];
+  const investorDeals = {
+    investors: [],
+    founders: [],
+    advisors: [],
+    faqs: [],
+    dealHighlight: [],
+    meetings: null,
+  };
 
-      const investorDeals ={investors:[], founders:[], advisors:[], faqs:[], dealHighlight:[], meetings:null}
-
-
-//GET LIST OF FORM UNIQUE ID FROM FIREBASE      
-    useEffect(()=>{
-const getListOfUniqueId=async()=>{
-    try {
-        let listOfUniqueId
+  //GET LIST OF FORM UNIQUE ID FROM FIREBASE
+  useEffect(() => {
+    const getListOfUniqueId = async () => {
+      try {
+        let listOfUniqueId;
         await (
           await getDocs(collection(database, `metaData`))
         ).forEach((doc) => {
-        if(doc.id==="applyForDeals"){
-          listOfUniqueId=( doc.data().uniqueId);
-        }
-          
+          if (doc.id === "applyForDeals") {
+            listOfUniqueId = doc.data().uniqueId;
+          }
         });
         checkForAuthenticity(listOfUniqueId);
       } catch (error) {
         console.log("Err: ", error);
       }
-}
-        getListOfUniqueId()
-    },[])
+    };
+    getListOfUniqueId();
+  }, []);
 
-//GET LIST OF SUBMITTED FORM UNIQUE ID FROM FIREBASE 
- useEffect(()=>{
-    const getListOfCompletedId=async()=>{
-        try {
-            let listOfCompletedId
-            await (
-              await getDocs(collection(database, `metaData`))
-            ).forEach((doc) => {
-            if(doc.id==="applyForDeals"){
-                listOfCompletedId=( doc.data().completedId);
-            }
-              
-            });
-            redirectUser(listOfCompletedId);
-          } catch (error) {
-            console.log("Err: ", error);
+  //GET LIST OF SUBMITTED FORM UNIQUE ID FROM FIREBASE
+  useEffect(() => {
+    const getListOfCompletedId = async () => {
+      try {
+        let listOfCompletedId;
+        await (
+          await getDocs(collection(database, `metaData`))
+        ).forEach((doc) => {
+          if (doc.id === "applyForDeals") {
+            listOfCompletedId = doc.data().completedId;
           }
+        });
+        redirectUser(listOfCompletedId);
+      } catch (error) {
+        console.log("Err: ", error);
+      }
+    };
+    getListOfCompletedId();
+  }, []);
+
+  //CHECK FOR AUTHENTICITY
+  function checkForAuthenticity(idList) {
+    setFormUniqueId(idList);
+    if (idList.includes(uniqueId)) {
+      return;
     }
-getListOfCompletedId()
- },[])  
-    
-//CHECK FOR AUTHENTICITY
-function checkForAuthenticity(idList){
-    setFormUniqueId(idList)
-    if(idList.includes(uniqueId)){return}
-    toast.error("Not Authenticated")
- window.location.href="https://reverr.io";
- 
-}
+    toast.error("Not Authenticated");
+    window.location.href = "https://reverr.io";
+  }
 
-//REDIRECT USER TO SOME OTHER PAGE
-function redirectUser(idList){
-    setFormCompletedUniqueId(idList)
-if(!idList.includes(uniqueId)){return}
-toast.error("Already Filled the form")
-window.location.href="https://reverr.io";
-}
+  //REDIRECT USER TO SOME OTHER PAGE
+  function redirectUser(idList) {
+    setFormCompletedUniqueId(idList);
+    if (!idList.includes(uniqueId)) {
+      return;
+    }
+    toast.error("Already Filled the form");
+    window.location.href = "https://reverr.io";
+  }
 
-
-//HANDLE SUBMITTING FORM
-const onAddDealHandler = async () => {
+  //HANDLE SUBMITTING FORM
+  const onAddDealHandler = async () => {
     setDealsAddLoading(true);
     const { investors, founders, advisors, faqs, dealHighlight, meetings } =
       investorDeals;
@@ -166,7 +177,7 @@ const onAddDealHandler = async () => {
       const bagdImg = await uploadMedia(bgImg, "rvpDeal/cardImg/backgroundImg");
       const dealData = {
         id: uid,
-        live:dealLive,
+        live: dealLive,
         dealDetails: {
           name,
           industry,
@@ -184,8 +195,14 @@ const onAddDealHandler = async () => {
         due_Diligence,
         // pitchDeck: { docName: pitchDeckMedia.name, docUrl: pitchDeckUrl },
         // projection: { docName: projectionMedia.name, docUrl: projectionUrl },
-        pitchDeck: { docName: pitchDeckMedia?pitchDeckMedia.name:"", docUrl: pitchDeckUrl?pitchDeckUrl:"" },
-        projection: { docName: projectionMedia?projectionMedia.name:"", docUrl: projectionUrl?projectionUrl:"" },
+        pitchDeck: {
+          docName: pitchDeckMedia ? pitchDeckMedia.name : "",
+          docUrl: pitchDeckUrl ? pitchDeckUrl : "",
+        },
+        projection: {
+          docName: projectionMedia ? projectionMedia.name : "",
+          docUrl: projectionUrl ? projectionUrl : "",
+        },
         dealDescription: {
           shortDesc,
           description,
@@ -206,8 +223,14 @@ const onAddDealHandler = async () => {
         cardImages: {
           // logo: { name: logo.name, logoUrl: logoImg },
           // bgImage: { name: bgImg.name, bgUrl: bagdImg },
-          logo: { name: logo?logo.name:"", logoUrl: logoImg?logoImg:"" },
-          bgImage: { name: bgImg?bgImg.name:"", bgUrl: bagdImg?bagdImg:"" },
+          logo: {
+            name: logo ? logo.name : "",
+            logoUrl: logoImg ? logoImg : "",
+          },
+          bgImage: {
+            name: bgImg ? bgImg.name : "",
+            bgUrl: bagdImg ? bagdImg : "",
+          },
         },
         onePage: {
           companyDescription,
@@ -227,15 +250,17 @@ const onAddDealHandler = async () => {
 
       await addDealInDatabase(uid, dealData);
       console.log("added");
-      const newUniqueId=formUniqueId.filter((item)=>{return item!==uniqueId})
-      const newCompletedUniqueId=[...formCompletedUniqueId,uniqueId]
-      await addUniqueIdToFirebase(newUniqueId)
-      await addCompletedFormUniqueIdToFirebase(newCompletedUniqueId)
+      const newUniqueId = formUniqueId.filter((item) => {
+        return item !== uniqueId;
+      });
+      const newCompletedUniqueId = [...formCompletedUniqueId, uniqueId];
+      await addUniqueIdToFirebase(newUniqueId);
+      await addCompletedFormUniqueIdToFirebase(newCompletedUniqueId);
 
-      toast.success("Form Submitted Thank You !")
-setTimeout(()=>{
-    window.location.href="https://reverr.io";
-},1000)
+      toast.success("Form Submitted Thank You !");
+      setTimeout(() => {
+        window.location.href = "https://reverr.io";
+      }, 1000);
       setDealsAddLoading(false);
     } catch (error) {
       console.log(error);
@@ -244,8 +269,8 @@ setTimeout(()=>{
 
   return (
     <>
-<ToastContainer/>
-<div className={styles.main__deal}>
+      <ToastContainer />
+      <div className={styles.main__deal}>
         <form>
           <fieldset style={{ display: "flex" }}>
             <legend>Deal Details</legend>
@@ -282,7 +307,9 @@ setTimeout(()=>{
               onChange={(e) => setNoOfEmployees(e.target.value)}
               placeholder="No of employees"
             />
-            <div style={{ width: "88%", marginLeft: "1%",marginBottom:"1rem" }}>
+            <div
+              style={{ width: "88%", marginLeft: "1%", marginBottom: "1rem" }}
+            >
               <label className={styles.formLabel} for="sectors">
                 <h4>Sectors: </h4>
               </label>
@@ -298,7 +325,7 @@ setTimeout(()=>{
               />
             </div>
             <label className={styles.formLabel} style={{ marginLeft: "1%" }}>
-              <h4 style={{marginTop:"0"}}>Incorporation Date :</h4>
+              <h4 style={{ marginTop: "0" }}>Incorporation Date :</h4>
             </label>
             <input
               style={{ width: "26.3%" }}
@@ -416,7 +443,9 @@ setTimeout(()=>{
         <form>
           <fieldset>
             <legend>File</legend>
-            <label className={styles.formLabel} for="Pitchdeck">Pitchdeck: </label>
+            <label className={styles.formLabel} for="Pitchdeck">
+              Pitchdeck:{" "}
+            </label>
             <input
               type="file"
               onChange={(e) => {
@@ -433,7 +462,9 @@ setTimeout(()=>{
               name="Pitchdeck"
             />
             <br />
-            <label className={styles.formLabel} for="projection">Projection: </label>
+            <label className={styles.formLabel} for="projection">
+              Projection:{" "}
+            </label>
             <input
               onChange={(e) => {
                 const newDate = dateGenerator();
@@ -455,7 +486,9 @@ setTimeout(()=>{
         <form>
           <fieldset>
             <legend>Card Images</legend>
-            <label className={styles.formLabel} for="logo">Logo: </label>
+            <label className={styles.formLabel} for="logo">
+              Logo:{" "}
+            </label>
             <input
               type="file"
               onChange={(e) => {
@@ -472,7 +505,9 @@ setTimeout(()=>{
               name="logo"
             />
             <br />
-            <label className={styles.formLabel} for="bg">Background: </label>
+            <label className={styles.formLabel} for="bg">
+              Background:{" "}
+            </label>
             <input
               onChange={(e) => {
                 const newDate = dateGenerator();
@@ -545,14 +580,22 @@ setTimeout(()=>{
           </div>
         )}
         <div className={styles.btn_container}>
-          <button onClick={()=>{
-            const confirmBox=window.confirm("You Will Not be able To Visit this page again!! Are You sure you wanna submit the form?")
-            if(confirmBox===true){onAddDealHandler()}
-          }}>Add Deal</button>
+          <button
+            onClick={() => {
+              const confirmBox = window.confirm(
+                "You Will Not be able To Visit this page again!! Are You sure you wanna submit the form?"
+              );
+              if (confirmBox === true) {
+                onAddDealHandler();
+              }
+            }}
+          >
+            Add Deal
+          </button>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default FounderForm
+export default FounderForm;

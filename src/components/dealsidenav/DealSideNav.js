@@ -5,20 +5,21 @@ import { updateDealInDatabase } from "../../firebase/firebase";
 
 const DealSideNav = () => {
   const user = useSelector((state) => state.user.user);
+  // console.log(user);
   const deal = useSelector((state) => state.deal.deal);
-  const { firstName, lastName, email, uid } = user;
+  // const { uid } = user;
   const { dealDetails, meetings, interestedUsers, id } = deal;
 
   // const { name } = dealDetails;
   const addInterested = async () => {
     for (let i = 0; i <= interestedUsers.length; i++) {
-      if (interestedUsers[i] === uid) {
+      if (interestedUsers[i] === user?.uid) {
         console.log("Exist");
         break;
       } else {
         await updateDealInDatabase(id, {
           ...deal,
-          interestedUsers: [...interestedUsers, uid],
+          interestedUsers: [...interestedUsers, user?.uid],
         });
       }
     }
@@ -28,7 +29,7 @@ const DealSideNav = () => {
   return (
     <div className="sideNav">
       <NavLink
-        to={`/deals/${deal.id}/about`}
+        to={`/deals/${deal.id}`}
         className="NavLink NavLink NavLink__Dashboard"
       >
         About deal

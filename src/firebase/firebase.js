@@ -121,6 +121,21 @@ export const getUserFromDatabase = async (uid) => {
   ).forEach((doc) => {
     User = { ...doc.data() };
   });
+  // return User;
+
+  // const metaData = await getDoc(doc(database, "metaData", "investoroid"));
+  // // console.log(metaData.data().users);
+  // metaData.data().users?.forEach(async (item) => {
+  //   // console.log(item);
+
+  //   if (item?.id === uid) {
+  //     const userDataByEmail = await getDoc(doc(database, "Users", item?.email));
+  //     const userDataById = await getDoc(doc(database, "Users", item?.id));
+  //     // console.log(userDataByEmail.data(), "ss");
+  //     const UserData = userDataById || userDataByEmail;
+  //     User = { ...UserData.data() };
+  //   }
+  // });
   return User;
 };
 
@@ -143,13 +158,22 @@ export const fetchDealFromDatabase = async (deal_Id) => {
   }
 };
 
+export const getDealById = async (dealId) => {
+  try {
+    const deal = await getDoc(doc(database, "Investordeals", dealId));
+    // console.log(deal.data());
+    return deal.data();
+  } catch (err) {
+    console.log(err);
+  }
+};
 export const fetchDealsFromDatabase = async () => {
   try {
     let deals = [];
     await (
       await getDocs(collection(database, `Investordeals`))
     ).forEach((doc) => {
-      if(doc.data().live){
+      if (doc.data().live) {
         deals.push({ ...doc.data() });
       }
     });
@@ -185,17 +209,16 @@ export const fetchBlogsFromDatabase = async () => {
 const storage = getStorage(app);
 
 export const uploadMedia = async (media, path) => {
-  if(media!==""){
-  try {
-    
-    await uploadBytesResumable(ref(storage, `${path}/${media.name}`), media);
-    const getMedia = await ref(storage, `${path}/${media.name}`);
-    const mediaLink = await getDownloadURL(getMedia);
-    return mediaLink;
-  } catch (err) {
-    console.log("Err: ", err);
+  if (media !== "") {
+    try {
+      await uploadBytesResumable(ref(storage, `${path}/${media.name}`), media);
+      const getMedia = await ref(storage, `${path}/${media.name}`);
+      const mediaLink = await getDownloadURL(getMedia);
+      return mediaLink;
+    } catch (err) {
+      console.log("Err: ", err);
+    }
   }
-}
 };
 
 export const addUserToMetadata = async (email, id) => {
@@ -221,19 +244,23 @@ export const addDealInDatabase = async (uid, data) => {
 };
 
 //ADD FORM UNIQUE ID
-export const addUniqueIdToFirebase=async(id)=>{
+export const addUniqueIdToFirebase = async (id) => {
   try {
-    return await updateDoc(doc(database, "metaData", "applyForDeals"), {uniqueId:id});
+    return await updateDoc(doc(database, "metaData", "applyForDeals"), {
+      uniqueId: id,
+    });
   } catch (err) {
     console.log("Err: ", err);
   }
-}
+};
 
 //ADD COMPLETED FORM UNIQUE ID
-export const addCompletedFormUniqueIdToFirebase=async(id)=>{
+export const addCompletedFormUniqueIdToFirebase = async (id) => {
   try {
-    return await updateDoc(doc(database, "metaData", "applyForDeals"), {completedId:id});
+    return await updateDoc(doc(database, "metaData", "applyForDeals"), {
+      completedId: id,
+    });
   } catch (err) {
     console.log("Err: ", err);
   }
-}
+};

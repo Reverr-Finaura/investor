@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import SignIn from "../pages/auth/signin/SignIn";
 import SignUp from "../pages/auth/signup/SingUp";
 import SignUpNew from "../pages/auth/signup/SignUpNew";
@@ -26,17 +26,23 @@ import NotFound from "../pages/NotFound/NotFound";
 import AuthRoute from "./AuthRoute";
 import NewProtectedRoute from "./NewProtectedRoute";
 import FounderForm from "../pages/Founder Form/FounderForm";
+import { useSelector } from "react-redux";
+import { getAuth } from "firebase/auth";
 
 const AppRoutes = () => {
+  const user = useSelector((state) => state.user.user);
+  // const auth = getAuth();
+  // const user = auth.currentUser;
   return (
     <Routes>
       <Route
         path="/"
         element={
           // <AuthRoute>
-          <SignIn />
-          // </AuthRoute>
+          // <SignIn />
+          user ? <Navigate to="/dashboard" replace /> : <SignIn />
         }
+        // </AuthRoute>
       />
       <Route
         path="/signUp"
@@ -86,7 +92,7 @@ const AppRoutes = () => {
           // </AuthRoute>
         }
       />
-      <Route path="/form/:form_Id" element={<FounderForm/>}/>
+      <Route path="/form/:form_Id" element={<FounderForm />} />
       <Route path="/home" element={<HomePage />} />
       <Route path="/home/:blog_Id/blog" element={<Blogs />} />
       <Route path="/dashboard/:blog_Id/blog" element={<Blogs />} />

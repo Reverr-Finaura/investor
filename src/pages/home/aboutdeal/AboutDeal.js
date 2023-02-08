@@ -11,15 +11,15 @@ import "./aboutdeal.css";
 import { useSelector } from "react-redux";
 import { videoUrlEmbed } from "../../../utils/utils";
 import { useParams } from "react-router-dom";
-import { fetchDealFromDatabase } from "../../../firebase/firebase";
+import { fetchDealFromDatabase, getDealById } from "../../../firebase/firebase";
 const AboutDeal = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const { deal_Id } = useParams();
-  const deal = useSelector((state) => state.deal.deal);
-  console.log(deal);
-  // const [deal, setDeal] = useState([]);
+  // const deal = useSelector((state) => state.deal.deal);
+  // console.log(deal);
+  const [dealInfo, setDealInfo] = useState("");
   // const fetchDeal = useCallback(async () => {
   //   setIsLoading(true);
   //   const results = await fetchDealFromDatabase(deal_Id);
@@ -27,33 +27,50 @@ const AboutDeal = () => {
   //   setIsLoading(false);
   // }, []);
 
-  const {
-    cardImages,
-    dealDetails,
-    dealDescription,
-    investors,
-    dealHighlight,
-    Links,
-  } = deal;
+  useEffect(() => {
+    async function fetchDeal() {
+      setIsLoading(true);
+      const dealInfo = await getDealById(deal_Id);
+      setDealInfo(dealInfo);
+      // console.log(dealInfo);
+      setIsLoading(false);
+    }
+    fetchDeal();
+  }, [deal_Id]);
 
-  const { description } = deal?.dealDescription;
-  const {
-    name,
-    raised,
-    date,
-    type,
-    headquarter,
-    firm,
-    noOfEmployees,
-    incorporationDate,
-    sectorsOfInvestment,
-  } = dealDetails;
-  const { videoLink, twitter, instagram, linkedIn, website } = Links;
-  const { logo } = cardImages;
+  // const {
+  //   cardImages,
+  //   dealDetails,
+  //   dealDescription,
+  //   investors,
+  //   dealHighlight,
+  //   Links,
+  // } = deal;
 
-  const logo_img = logo?.logoUrl || "https://i.imgur.com/es6VRIM.jpg";
+  // const { description } = deal?.dealDescription;
+  // const {
+  //   name,
+  //   raised,
+  //   date,
+  //   type,
+  //   headquarter,
+  //   firm,
+  //   noOfEmployees,
+  //   incorporationDate,
+  //   sectorsOfInvestment,
+  // } = dealDetails;
+  // const { videoLink, twitter, instagram, linkedIn, website } = Links;
+  // const { logo } = cardImages;
+
+  const logo_img =
+    dealInfo?.cardImages?.logo?.logoUrl || "https://i.imgur.com/es6VRIM.jpg";
   const getRemainingDays = () => {
-    let remainingDays = 31 - date.substring(8, date.length);
+    let remainingDays =
+      31 -
+      dealInfo?.dealDetails?.date.substring(
+        8,
+        dealInfo?.dealDetails?.date.length
+      );
     return remainingDays;
   };
 
@@ -88,13 +105,13 @@ const AboutDeal = () => {
                         alt="logo"
                       />
                     </div>
-                    <h1>{name}</h1>
+                    <h1>{dealInfo?.dealDetails?.name}</h1>
                   </div>
 
-                  {videoLink ? (
+                  {dealInfo?.Links?.videoLink ? (
                     <iframe
                       className="aboutdeal__video"
-                      src={videoUrlEmbed(videoLink)}
+                      src={videoUrlEmbed(dealInfo?.Links?.videoLink)}
                       title="YouTube video player"
                       frameborder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -109,13 +126,13 @@ const AboutDeal = () => {
                   )}
                 </div>
                 <div className="aboutdeal__head-content">
-                  <h3>{type}</h3>
-                  <p>{description || ""}</p>
+                  <h3>{dealInfo?.dealDetails?.type}</h3>
+                  <p>{dealInfo?.dealDescription?.description || ""}</p>
                 </div>
                 <div className="aboutdeal__stats-wrap">
                   <progress
                     id="file"
-                    value={raised}
+                    value={dealInfo?.dealDetails?.raised}
                     max="100"
                     className="aboutdeal__progress"
                   />
@@ -125,7 +142,7 @@ const AboutDeal = () => {
                       <br />
                       <span style={{ color: "#0077B7" }}>
                         <h2 style={{ margin: "-1rem 0rem 0rem 0rem" }}>
-                          {raised}%
+                          {dealInfo?.dealDetails?.raised}%
                         </h2>
                       </span>
                     </div>
@@ -156,7 +173,7 @@ const AboutDeal = () => {
                       <br />
                       <span style={{ color: "#0077B7" }}>
                         <h2 style={{ margin: "-1rem 0rem 0rem 0rem" }}>
-                          {investors.length}
+                          {dealInfo?.investors?.length}
                         </h2>
                       </span>
                     </div>
@@ -180,37 +197,55 @@ const AboutDeal = () => {
                       <h3>Incorporation date</h3>
                     </div>
                     <div className="aboutdeal__overview-right">
-                      <h3>{headquarter}</h3>
-                      <h3>{firm}</h3>
-                      <h3>{noOfEmployees}</h3>
+                      <h3>{dealInfo?.dealDetails?.headquarter}</h3>
+                      <h3>{dealInfo?.dealDetails?.firm}</h3>
+                      <h3>{dealInfo?.dealDetails?.noOfEmployees}</h3>
                       <br />
                       <div className="aboutdeal__overview-social-links">
-                        <a href={instagram} target="_blank" rel="noreferrer">
+                        <a
+                          href={dealInfo?.Links?.instagram}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           <img src={instagram_Img} alt="insta-link" />
                         </a>
-                        <a href={linkedIn} target="_blank" rel="noreferrer">
+                        <a
+                          href={dealInfo?.Links?.linkedIn}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           <img src={linkedIn_Img} alt="linkedin-link" />
                         </a>
-                        <a href={twitter} target="_blank" rel="noreferrer">
+                        <a
+                          href={dealInfo?.Links?.twitter}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           <img src={twitter_Img} alt="twitter-link" />
                         </a>
                       </div>
                       <br />
                       <div className="aboutdeal__overview-social-tags">
-                        {sectorsOfInvestment.map((data) => (
-                          <span className="aboutdeal__overview-social-tag">
-                            {data}
-                          </span>
-                        ))}
+                        {dealInfo?.dealDetails?.sectorsOfInvestment?.map(
+                          (data) => (
+                            <span className="aboutdeal__overview-social-tag">
+                              {data}
+                            </span>
+                          )
+                        )}
                       </div>
                       <br />
-                      <h3>{type}</h3>
+                      <h3>{dealInfo?.dealDetails?.type}</h3>
                       <h3 style={{ marginTop: "-4px" }}>
-                        <a href={`${website}`} target="_blank" rel="noreferrer">
-                          {website}
+                        <a
+                          href={`${dealInfo?.Links?.website}`}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {dealInfo?.Links?.website}
                         </a>
                       </h3>
-                      <h3>{incorporationDate}</h3>
+                      <h3>{dealInfo?.dealDetails?.incorporationDate}</h3>
                     </div>
                   </div>
                   <button className="aboutdeal__overviewInterested-btn">
@@ -223,7 +258,7 @@ const AboutDeal = () => {
                     <h1>Highlights</h1>
                   </div>
                   <div className="aboutdeal__highlight-content">
-                    {dealHighlight.map((data) => (
+                    {dealInfo?.dealHighlight?.map((data) => (
                       <li key={data.id}>{data.title}</li>
                     ))}
                   </div>
