@@ -206,3 +206,13 @@ export const addUserToMetadata = async (email, id) => {
     console.log(error);
   }
 };
+
+// addDocs
+
+export const addDealInDatabase = async (uid, data) => {
+  try {
+    return await setDoc(doc(database, "Investordeals", uid), data);
+  } catch (err) {
+    console.log("Err: ", err);
+  }
+};
