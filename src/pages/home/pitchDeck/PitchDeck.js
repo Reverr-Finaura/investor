@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 const PitchDeck = () => {
   const deal = useSelector((state) => state.deal.deal);
   const { pitchDeck } = deal;
-  const pitchDeckUrl = pitchDeck.docUrl;
+  const pitchDeckUrl = pitchDeck?.docUrl;
 
   let meetings = [
     {

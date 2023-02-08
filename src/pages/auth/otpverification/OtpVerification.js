@@ -34,8 +34,8 @@ const OtpVerification = () => {
         await createUserWithEmailPassword(email, password).then((data) => {
           const { uid, email } = data.user;
           console.log("Otp-ID : ", uid);
-          
-          addUserInDatabase(email, {
+
+          addUserInDatabase(uid, {
             ...user,
             uid,
           });

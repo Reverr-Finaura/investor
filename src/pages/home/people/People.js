@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 const People = () => {
   const deal = useSelector((state) => state.deal.deal);
   const { founders, advisors, investors } = deal;
-
+  console.log(deal);
   return (
     <>
       <LoggedInNavbar />
@@ -27,7 +27,7 @@ const People = () => {
               Meet the team
             </h1>
             <div className="people_team-wrap">
-              {founders.map((data) => (
+              {founders?.map((data) => (
                 <TeamCard key={data.id} data={data} />
               ))}
             </div>
@@ -51,7 +51,7 @@ const People = () => {
               Investors
             </h1>
             <div className="people_team-wrap">
-              {investors.map((data) => (
+              {investors?.map((data) => (
                 <TeamCard key={data.id} data={data} />
               ))}
             </div>
@@ -75,7 +75,7 @@ const People = () => {
               Advisors
             </h1>
             <div className="people_team-wrap">
-              {advisors.map((data) => (
+              {advisors?.map((data) => (
                 <TeamCard key={data.id} data={data} />
               ))}
             </div>

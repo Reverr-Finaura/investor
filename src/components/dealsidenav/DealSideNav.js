@@ -9,7 +9,7 @@ const DealSideNav = () => {
   const { firstName, lastName, email, uid } = user;
   const { dealDetails, meetings, interestedUsers, id } = deal;
 
-  const { name } = dealDetails;
+  // const { name } = dealDetails;
   const addInterested = async () => {
     for (let i = 0; i <= interestedUsers.length; i++) {
       if (interestedUsers[i] === uid) {
