@@ -1,7 +1,7 @@
 import { collection, getDocs } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { addDealInDatabase, database, uploadMedia } from '../../firebase/firebase'
+import { addCompletedFormUniqueIdToFirebase, addDealInDatabase, addUniqueIdToFirebase, database, uploadMedia } from '../../firebase/firebase'
 import styles from "./FounderForm.module.css"
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
@@ -38,7 +38,7 @@ const FounderForm = () => {
     const [bgImg, setBgImg] = useState("");
     const [dealsAddLoading, setDealsAddLoading] = useState(false);
     const [due_Diligence, setDue_Dilligence] = useState(false);
-    const [dealLive,setDealLive]=useState(false)
+    const [dealLive,setDealLive]=useState(true)
     const [headquarter, setHeadquarter] = useState("");
     const [noOfEmployees, setNoOfEmployees] = useState("");
     const [sectorsOfInvestment, setSectorsOfInvestment] = useState([]);
@@ -56,7 +56,9 @@ const FounderForm = () => {
     const [growthStategy, setGrowthStrategy] = useState("");
     const [marketTraction, setMarketTraction] = useState("");
     const [fundingAmt, setFundingAmt] = useState("");
-
+    const[formUniqueId,setFormUniqueId]=useState([])
+    const[formCompletedUniqueId,setFormCompletedUniqueId]=useState([])
+console.log("ui",formUniqueId,"cui",formCompletedUniqueId)
     const sectors = [
         { value: 1, label: "Agricultural" },
         { value: 2, label: "Apparel & Accessories" },
@@ -128,6 +130,7 @@ getListOfCompletedId()
     
 //CHECK FOR AUTHENTICITY
 function checkForAuthenticity(idList){
+    setFormUniqueId(idList)
     if(idList.includes(uniqueId)){return}
     toast.error("Not Authenticated")
  window.location.href="https://reverr.io";
@@ -136,6 +139,7 @@ function checkForAuthenticity(idList){
 
 //REDIRECT USER TO SOME OTHER PAGE
 function redirectUser(idList){
+    setFormCompletedUniqueId(idList)
 if(!idList.includes(uniqueId)){return}
 toast.error("Already Filled the form")
 window.location.href="https://reverr.io";
@@ -223,6 +227,11 @@ const onAddDealHandler = async () => {
 
       await addDealInDatabase(uid, dealData);
       console.log("added");
+      const newUniqueId=formUniqueId.filter((item)=>{return item!==uniqueId})
+      const newCompletedUniqueId=[...formCompletedUniqueId,uniqueId]
+      await addUniqueIdToFirebase(newUniqueId)
+      await addCompletedFormUniqueIdToFirebase(newCompletedUniqueId)
+
       toast.success("Form Submitted Thank You !")
 setTimeout(()=>{
     window.location.href="https://reverr.io";
@@ -236,7 +245,7 @@ setTimeout(()=>{
   return (
     <>
 <ToastContainer/>
-<div className="main__deal">
+<div className={styles.main__deal}>
         <form>
           <fieldset style={{ display: "flex" }}>
             <legend>Deal Details</legend>
@@ -273,8 +282,8 @@ setTimeout(()=>{
               onChange={(e) => setNoOfEmployees(e.target.value)}
               placeholder="No of employees"
             />
-            <div style={{ width: "88%", marginLeft: "1%" }}>
-              <label for="sectors">
+            <div style={{ width: "88%", marginLeft: "1%",marginBottom:"1rem" }}>
+              <label className={styles.formLabel} for="sectors">
                 <h4>Sectors: </h4>
               </label>
               <Select
@@ -288,8 +297,8 @@ setTimeout(()=>{
                 name="sectors"
               />
             </div>
-            <label style={{ marginLeft: "1%" }}>
-              <h4>Incorporation Date :</h4>
+            <label className={styles.formLabel} style={{ marginLeft: "1%" }}>
+              <h4 style={{marginTop:"0"}}>Incorporation Date :</h4>
             </label>
             <input
               style={{ width: "26.3%" }}
@@ -407,7 +416,7 @@ setTimeout(()=>{
         <form>
           <fieldset>
             <legend>File</legend>
-            <label for="Pitchdeck">Pitchdeck: </label>
+            <label className={styles.formLabel} for="Pitchdeck">Pitchdeck: </label>
             <input
               type="file"
               onChange={(e) => {
@@ -424,7 +433,7 @@ setTimeout(()=>{
               name="Pitchdeck"
             />
             <br />
-            <label for="projection">Projection: </label>
+            <label className={styles.formLabel} for="projection">Projection: </label>
             <input
               onChange={(e) => {
                 const newDate = dateGenerator();
@@ -446,7 +455,7 @@ setTimeout(()=>{
         <form>
           <fieldset>
             <legend>Card Images</legend>
-            <label for="logo">Logo: </label>
+            <label className={styles.formLabel} for="logo">Logo: </label>
             <input
               type="file"
               onChange={(e) => {
@@ -463,7 +472,7 @@ setTimeout(()=>{
               name="logo"
             />
             <br />
-            <label for="bg">Background: </label>
+            <label className={styles.formLabel} for="bg">Background: </label>
             <input
               onChange={(e) => {
                 const newDate = dateGenerator();
@@ -513,7 +522,7 @@ setTimeout(()=>{
           }}
         >
           <h1 style={{ marginRight: "2rem", color: "gray" }}>Due Diligence </h1>
-          <label className="switch">
+          <label className={styles.switch}>
             <input
               type="checkbox"
               onClick={(e) =>
@@ -522,7 +531,7 @@ setTimeout(()=>{
                   : setDue_Dilligence(false)
               }
             />
-            <span className="slider round"></span>
+            <span className={`${styles.slider} ${styles.round}`}></span>
           </label>
         </div>
         <AddFaq faqs={[]} />
@@ -531,12 +540,15 @@ setTimeout(()=>{
         <AddFounder founders={[]} />
         <AddAdvisor advisors={[]} />
         {dealsAddLoading && (
-          <div className="loading-state">
+          <div className={styles.loading_state}>
             <HourglassSplit />
           </div>
         )}
-        <div className="btn_container">
-          <button onClick={onAddDealHandler}>Add Deal</button>
+        <div className={styles.btn_container}>
+          <button onClick={()=>{
+            const confirmBox=window.confirm("You Will Not be able To Visit this page again!! Are You sure you wanna submit the form?")
+            if(confirmBox===true){onAddDealHandler()}
+          }}>Add Deal</button>
         </div>
       </div>
     </>

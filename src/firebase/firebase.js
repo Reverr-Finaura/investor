@@ -185,7 +185,9 @@ export const fetchBlogsFromDatabase = async () => {
 const storage = getStorage(app);
 
 export const uploadMedia = async (media, path) => {
+  if(media!==""){
   try {
+    
     await uploadBytesResumable(ref(storage, `${path}/${media.name}`), media);
     const getMedia = await ref(storage, `${path}/${media.name}`);
     const mediaLink = await getDownloadURL(getMedia);
@@ -193,6 +195,7 @@ export const uploadMedia = async (media, path) => {
   } catch (err) {
     console.log("Err: ", err);
   }
+}
 };
 
 export const addUserToMetadata = async (email, id) => {
@@ -216,3 +219,21 @@ export const addDealInDatabase = async (uid, data) => {
     console.log("Err: ", err);
   }
 };
+
+//ADD FORM UNIQUE ID
+export const addUniqueIdToFirebase=async(id)=>{
+  try {
+    return await updateDoc(doc(database, "metaData", "applyForDeals"), {uniqueId:id});
+  } catch (err) {
+    console.log("Err: ", err);
+  }
+}
+
+//ADD COMPLETED FORM UNIQUE ID
+export const addCompletedFormUniqueIdToFirebase=async(id)=>{
+  try {
+    return await updateDoc(doc(database, "metaData", "applyForDeals"), {completedId:id});
+  } catch (err) {
+    console.log("Err: ", err);
+  }
+}
