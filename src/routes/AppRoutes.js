@@ -25,6 +25,7 @@ import Blogs from "../pages/blogs/Blogs";
 import NotFound from "../pages/NotFound/NotFound";
 import AuthRoute from "./AuthRoute";
 import NewProtectedRoute from "./NewProtectedRoute";
+import FounderForm from "../pages/Founder Form/FounderForm";
 
 const AppRoutes = () => {
   return (
@@ -85,6 +86,7 @@ const AppRoutes = () => {
           // </AuthRoute>
         }
       />
+      <Route path="/form/:form_Id" element={<FounderForm/>}/>
       <Route path="/home" element={<HomePage />} />
       <Route path="/home/:blog_Id/blog" element={<Blogs />} />
       <Route path="/dashboard/:blog_Id/blog" element={<Blogs />} />

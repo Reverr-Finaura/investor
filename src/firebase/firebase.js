@@ -73,7 +73,7 @@ export const confirmPaswdReset = (oobCode, newPassword) => {
 };
 
 // Firestore
-const database = getFirestore();
+export const database = getFirestore();
 
 // getInverstoDeals
 // export const getInvestorDeals = async () => {
