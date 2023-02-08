@@ -18,7 +18,7 @@ import AddFaq from "./Add FAQ/AddFaq";
 import AddHighlight from "./Add Highlight/AddHighlight";
 import AddInvestor from "./Add Investor/AddInvestor";
 import AddFounder from "./Add Founder/AddFounder";
-import { HourglassSplit, Pen, Trash } from "react-bootstrap-icons";
+import { HourglassSplit } from "react-bootstrap-icons";
 import Select from "react-select";
 
 const FounderForm = () => {
@@ -63,6 +63,11 @@ const FounderForm = () => {
   const [fundingAmt, setFundingAmt] = useState("");
   const [formUniqueId, setFormUniqueId] = useState([]);
   const [formCompletedUniqueId, setFormCompletedUniqueId] = useState([]);
+  const[fetchingData,setFetchingData]=useState(true)
+  const[canVisitThisPage,setCanVisitThisPage]=useState(false)
+  const[alreadyCompleted,setAlreadyCompleted]=useState(false)
+
+
   console.log("ui", formUniqueId, "cui", formCompletedUniqueId);
   const sectors = [
     { value: 1, label: "Agricultural" },
@@ -141,20 +146,24 @@ const FounderForm = () => {
   function checkForAuthenticity(idList) {
     setFormUniqueId(idList);
     if (idList.includes(uniqueId)) {
+      setFetchingData(false)
+      setCanVisitThisPage(true)
       return;
     }
-    toast.error("Not Authenticated");
-    window.location.href = "https://reverr.io";
+    setFetchingData(false)
+    setCanVisitThisPage(false)
   }
 
   //REDIRECT USER TO SOME OTHER PAGE
   function redirectUser(idList) {
     setFormCompletedUniqueId(idList);
     if (!idList.includes(uniqueId)) {
+      setFetchingData(false);
+      setAlreadyCompleted(false)
       return;
     }
-    toast.error("Already Filled the form");
-    window.location.href = "https://reverr.io";
+    setFetchingData(false)
+    setAlreadyCompleted(true)
   }
 
   //HANDLE SUBMITTING FORM
@@ -260,7 +269,7 @@ const FounderForm = () => {
       toast.success("Form Submitted Thank You !");
       setTimeout(() => {
         window.location.href = "https://reverr.io";
-      }, 1000);
+      },50);
       setDealsAddLoading(false);
     } catch (error) {
       console.log(error);
@@ -270,7 +279,9 @@ const FounderForm = () => {
   return (
     <>
       <ToastContainer />
-      <div className={styles.main__deal}>
+      {fetchingData===true&&<div className={styles.hourGlassloadingCont}><HourglassSplit className={styles.hourGlassDesign}/></div>}
+      {fetchingData===false&&canVisitThisPage===true&&alreadyCompleted===false?
+        <div className={styles.main__deal}>
         <form>
           <fieldset style={{ display: "flex" }}>
             <legend>Deal Details</legend>
@@ -593,7 +604,15 @@ const FounderForm = () => {
             Add Deal
           </button>
         </div>
-      </div>
+      </div>:null}
+
+
+      {/* WARNING CONTAINER */}
+
+      {fetchingData===false&&(canVisitThisPage===false||alreadyCompleted===true)?<div className={styles.warningTextCont}>
+        {canVisitThisPage===false?<div className={styles.warningText}>You Are Not Authenticated To Visit This Page</div>:null}
+        {alreadyCompleted===true?<div className={styles.warningText}>You Have Already Completed This Form</div>:null}
+      </div>:null}
     </>
   );
 };
