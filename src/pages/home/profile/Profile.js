@@ -86,7 +86,7 @@ const Profile = () => {
         console.log("exec");
         userImgUrl = user?.userImg;
       }
-      console.log(userImgUrl);
+      // console.log(userImgUrl);
       const fullName = name.split(" ");
       const fName = fullName[0];
       const lName = fullName[1];
@@ -404,24 +404,30 @@ const Profile = () => {
                   <div className="profile__contact">
                     <h2>Contacts</h2>
                     <div className="profile__contact-Img">
-                      <a
-                        onClick={(e) => e.preventDefault()}
-                        href={user?.linkedInUrl ? user?.linkedInUrl : "#"}
-                      >
-                        <img src={linkedIn_Img} />
-                      </a>
-                      <a
-                        onClick={(e) => e.preventDefault()}
-                        href={user?.twitter ? user?.twitter : "#"}
-                      >
-                        <img src={twitter_Img} />
-                      </a>
-                      <a
-                        onClick={(e) => e.preventDefault()}
-                        href={user?.instagram ? user?.instagram : "#"}
-                      >
-                        <img src={instagram_Img} />
-                      </a>
+                      {user?.instagram || user?.twitter || user?.linkedInUrl ? (
+                        <>
+                          <a
+                            onClick={(e) => e.preventDefault()}
+                            href={user?.linkedInUrl ? user?.linkedInUrl : "#"}
+                          >
+                            <img src={linkedIn_Img} />
+                          </a>
+                          <a
+                            onClick={(e) => e.preventDefault()}
+                            href={user?.twitter ? user?.twitter : "#"}
+                          >
+                            <img src={twitter_Img} />
+                          </a>
+                          <a
+                            onClick={(e) => e.preventDefault()}
+                            href={user?.instagram ? user?.instagram : "#"}
+                          >
+                            <img src={instagram_Img} />
+                          </a>
+                        </>
+                      ) : (
+                        <p>no links </p>
+                      )}
                     </div>
                   </div>
                 </div>
