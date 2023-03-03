@@ -42,7 +42,7 @@ const OtpVerification = () => {
           addUserToMetadata(email, uid);
         });
 
-        await sendAccountHasBeenCreatedMail(name, email);
+        // await sendAccountHasBeenCreatedMail(name, email);
         dispatch(delUser());
         dispatch(delOtp());
         toast.success(
